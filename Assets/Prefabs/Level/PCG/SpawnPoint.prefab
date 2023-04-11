@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f7b6175a19b634a8660d4768e92966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorDirection: 1
+  doorDirection: 2
   roomList:
   - {fileID: 11400000, guid: 9c66dbafedaa7b14788ff64f8ec0d8c3, type: 2}
   - {fileID: 11400000, guid: 70bc941b8af5e464c81e5dfdf63b00a3, type: 2}

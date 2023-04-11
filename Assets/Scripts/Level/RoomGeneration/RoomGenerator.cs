@@ -6,10 +6,11 @@ public class RoomGenerator : MonoBehaviour
 {
     public int doorDirection;
 
-    private RoomTemplate roomTemplate;
+    public RoomTemplate roomTemplate;
     private int randomRoom;
     private bool isSpawned = false;
     public List<Rooms> roomList = new List<Rooms>();
+
     private void Start()
     {
         roomTemplate = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplate>();
@@ -27,23 +28,87 @@ public class RoomGenerator : MonoBehaviour
         {
             if (doorDirection == 1)
             {
-                randomRoom = Random.Range(0, roomTemplate.bottomRooms.Length);
-                Instantiate(roomTemplate.bottomRooms[randomRoom], transform.position, Quaternion.identity);
+                int randomNumber = Random.Range(1, 101);
+                List<Rooms> possibleRooms = new List<Rooms>();
+                foreach (Rooms room in roomTemplate.bottomRooms)
+                {
+                    if(randomNumber <= room.weight)
+                    {
+                        possibleRooms.Add(room);
+                    }  
+                }
+                if (possibleRooms.Count > 0)
+                {
+                    GameObject selectedRoom = possibleRooms[Random.Range(0, possibleRooms.Count)].room;
+                    Instantiate(selectedRoom, transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(roomTemplate.bottomRooms[1].room, transform.position, Quaternion.identity);
+                }  
             }
             else if (doorDirection == 2)
             {
-                randomRoom = Random.Range(0, roomTemplate.leftRooms.Length);
-                Instantiate(roomTemplate.leftRooms[randomRoom], transform.position, Quaternion.identity);
+                int randomNumber = Random.Range(1, 101);
+                List<Rooms> possibleRooms = new List<Rooms>();
+                foreach (Rooms room in roomTemplate.leftRooms)
+                {
+                    if (randomNumber <= room.weight)
+                    {
+                        possibleRooms.Add(room);
+                    }
+                }
+                if (possibleRooms.Count > 0)
+                {
+                    GameObject selectedRoom = possibleRooms[Random.Range(0, possibleRooms.Count)].room;
+                    Instantiate(selectedRoom, transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(roomTemplate.leftRooms[1].room, transform.position, Quaternion.identity);
+                }
             }
             else if (doorDirection == 3)
             {
-                randomRoom = Random.Range(0, roomTemplate.topRooms.Length);
-                Instantiate(roomTemplate.topRooms[randomRoom], transform.position, Quaternion.identity);
+                int randomNumber = Random.Range(1, 101);
+                List<Rooms> possibleRooms = new List<Rooms>();
+                foreach (Rooms room in roomTemplate.topRooms)
+                {
+                    if (randomNumber <= room.weight)
+                    {
+                        possibleRooms.Add(room);
+                    }
+                }
+                if (possibleRooms.Count > 0)
+                {
+                    GameObject selectedRoom = possibleRooms[Random.Range(0, possibleRooms.Count)].room;
+                    Instantiate(selectedRoom, transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(roomTemplate.topRooms[1].room, transform.position, Quaternion.identity);
+                }
             }
             else if (doorDirection == 4)
             {
-                randomRoom = Random.Range(0, roomTemplate.rightRooms.Length);
-                Instantiate(roomTemplate.rightRooms[randomRoom], transform.position, Quaternion.identity);
+                int randomNumber = Random.Range(1, 101);
+                List<Rooms> possibleRooms = new List<Rooms>();
+                foreach (Rooms room in roomTemplate.rightRooms)
+                {
+                    if (randomNumber <= room.weight)
+                    {
+                        possibleRooms.Add(room);
+                    }
+                }
+                if (possibleRooms.Count > 0)
+                {
+                    GameObject selectedRoom = possibleRooms[Random.Range(0, possibleRooms.Count)].room;
+                    Instantiate(selectedRoom, transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(roomTemplate.rightRooms[1].room, transform.position, Quaternion.identity);
+                }
             }
             isSpawned = true;
         }

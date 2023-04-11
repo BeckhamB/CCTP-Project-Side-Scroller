@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 331c37655139c6849a15b3fa4312b3c1, type: 3}
   m_Name: TopBottomLeft
   m_EditorClassIdentifier: 
-  room: {fileID: 4798318058304690552, guid: c4a887eed4920774394546995963b082, type: 3}
+  room: {fileID: 9123398655685972830, guid: c4a887eed4920774394546995963b082, type: 3}
   roomName: TopBottomLeft
-  weight: 0
+  weight: 20
