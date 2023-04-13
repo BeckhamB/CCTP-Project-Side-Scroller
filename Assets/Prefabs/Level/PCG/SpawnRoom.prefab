@@ -2363,6 +2363,7 @@ GameObject:
   - component: {fileID: 5691183756594581797}
   - component: {fileID: -501420876766014285}
   - component: {fileID: 8576227015596927670}
+  - component: {fileID: 7367634895131676428}
   m_Layer: 0
   m_Name: SpawnRoom
   m_TagString: Untagged
@@ -2424,6 +2425,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7367634895131676428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3334348025518123648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9692ea8f2189c34fa1905efc6cc5daf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformSpawner: {fileID: 7778010796869860195, guid: bb7419c59955ca84a8a34c89ab4d7ec3,
+    type: 3}
 --- !u!1 &3377671846530759046
 GameObject:
   m_ObjectHideFlags: 0

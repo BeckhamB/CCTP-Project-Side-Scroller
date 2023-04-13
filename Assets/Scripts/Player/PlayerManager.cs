@@ -13,19 +13,10 @@ public class PlayerManager : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayer;
+    private int meleeHitTracker = 0;
+    private int rangedHitTracker = 0;
 
     private int currentCollectableAmount;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void Attack()
     {
@@ -33,6 +24,7 @@ public class PlayerManager : MonoBehaviour
 
         foreach(Collider2D enemy in enemyHit)
         {
+            meleeHitTracker++;
             enemy.GetComponent<Enemy>().SetHealth(-40, WeaponType.MELEE);
         }
     }
@@ -40,6 +32,10 @@ public class PlayerManager : MonoBehaviour
     public void SetCollectableCount(int collectableAmount)
     {
         currentCollectableAmount += collectableAmount;
+    }
+    public void SetRangedHitTracker(int hitAmount)
+    {
+        rangedHitTracker += hitAmount;
     }
     private void OnDrawGizmosSelected()
     {

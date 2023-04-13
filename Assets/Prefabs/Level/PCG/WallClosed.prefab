@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4704584635925587532}
   m_Layer: 0
   m_Name: WallClosed
-  m_TagString: Untagged
+  m_TagString: ClosedWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -207,3 +207,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorDirection: 0
+  roomTemplate: {fileID: 0}
+  roomList: []
