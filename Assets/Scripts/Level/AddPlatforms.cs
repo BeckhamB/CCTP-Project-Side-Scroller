@@ -6,29 +6,30 @@ public class AddPlatforms : MonoBehaviour
 {
     public GameObject platformSpawner;
     private bool platformsSpawned = false;
+    private GameObject overlapRoom;
 
-    private void Start()
-    {
-        
-    }
     public void CheckIfSpawned()
     {
-        if(!platformsSpawned)
+        if (overlapRoom != null && !overlapRoom.GetComponent<PlayerInRoom>().GetSpawnedObjects())
         {
-            GameObject platform = Instantiate(platformSpawner, transform.position, Quaternion.identity);
+            Instantiate(platformSpawner, transform.position, Quaternion.identity);
             platformsSpawned = true;
         }
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    private void Update()
     {
-        if (collision.CompareTag("RoomCollider"))
+        if (platformsSpawned && overlapRoom != null)
         {
-
-            if (platformsSpawned)
-            {
-                collision.GetComponent<PlayerInRoom>().SetSpawnedObjects(true);
-                Destroy(this.gameObject);
-            }
+            overlapRoom.GetComponent<PlayerInRoom>().SetSpawnedObjects(true);
+            //Destroy(this.gameObject);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<PlayerInRoom>() != null)
+        {
+            overlapRoom = collision.gameObject;
+            
         }
     }
 }

@@ -6,17 +6,26 @@ public class PlayerInRoom : MonoBehaviour
 {
     private LevelManager levelManager;
     private bool isInRoom;
-    private bool spawnedObjects = false;
+    public bool spawnedObjects = false;
     private float isInRoomTimer = 0f;
     private AddPlatforms[] addPlatforms;
 
     // Start is called before the first frame update
     void Start()
     {
-
         levelManager = GameObject.FindGameObjectWithTag("Level").GetComponent<LevelManager>();
     }
 
+    private void Update()
+    {
+        if (addPlatforms != null)
+        {
+            foreach (AddPlatforms spawner in addPlatforms)
+            {
+                spawner.CheckIfSpawned();
+            }
+        }
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -34,13 +43,8 @@ public class PlayerInRoom : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isInRoom = true;
-            addPlatforms = gameObject.GetComponentsInChildren<AddPlatforms>();
-            foreach (AddPlatforms spawner in addPlatforms)
-            {
-                spawner.CheckIfSpawned();
-            }
+            addPlatforms = gameObject.GetComponentsInChildren<AddPlatforms>(); 
         }
-
     }
 
     private void OnTriggerExit2D(Collider2D collision)

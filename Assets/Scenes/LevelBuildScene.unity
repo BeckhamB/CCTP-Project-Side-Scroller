@@ -357,7 +357,7 @@ MonoBehaviour:
   closedRoom: {fileID: 906970681001889875, guid: 0721e3c5ffdfa6a4a812fd33b3c3eafa,
     type: 3}
   spawnedRooms: []
-  spawnTimer: 5
+  spawnTimer: 2
   exitPortal: {fileID: 8225232515087724820, guid: 300c08295969a004194e19e83812d56c,
     type: 3}
 --- !u!4 &282128518
@@ -413,6 +413,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438710593478870840, guid: 72c0b0e0a65fd2a4f92d81dbf505d6d9,
+        type: 3}
+      propertyPath: spawnedObjects
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5691183756594581797, guid: 72c0b0e0a65fd2a4f92d81dbf505d6d9,
         type: 3}
@@ -479,11 +484,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7367634895131676428, guid: 72c0b0e0a65fd2a4f92d81dbf505d6d9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 72c0b0e0a65fd2a4f92d81dbf505d6d9, type: 3}
@@ -514,6 +514,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6404846048428722760, guid: ef57261e0d6e61c45996cdf7b0a5bfac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8260373097095502302, guid: ef57261e0d6e61c45996cdf7b0a5bfac,
         type: 3}

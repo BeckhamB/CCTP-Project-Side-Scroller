@@ -209,7 +209,7 @@ public class RoomGenerator : MonoBehaviour
         }
         else
         {
-            Instantiate(roomTemplate.bottomRooms[1].room, transform.position, Quaternion.identity);
+            Instantiate(roomTemplate.bottomRooms[5].room, transform.position, Quaternion.identity);
             roomTemplate.AddNumOfRooms(1);
         }
     }
@@ -234,7 +234,7 @@ public class RoomGenerator : MonoBehaviour
         else
         {
             roomTemplate.AddNumOfRooms(1);
-            Instantiate(roomTemplate.leftRooms[1].room, transform.position, Quaternion.identity);
+            Instantiate(roomTemplate.leftRooms[5].room, transform.position, Quaternion.identity);
         }
     }
     private void SpawnTopRooms()
@@ -257,7 +257,7 @@ public class RoomGenerator : MonoBehaviour
         else
         {
             roomTemplate.AddNumOfRooms(1);
-            Instantiate(roomTemplate.topRooms[1].room, transform.position, Quaternion.identity);
+            Instantiate(roomTemplate.topRooms[5].room, transform.position, Quaternion.identity);
         }
     }
     private void SpawnRightRooms()
@@ -280,7 +280,7 @@ public class RoomGenerator : MonoBehaviour
         else
         {
             roomTemplate.AddNumOfRooms(1);
-            Instantiate(roomTemplate.rightRooms[1].room, transform.position, Quaternion.identity);
+            Instantiate(roomTemplate.rightRooms[5].room, transform.position, Quaternion.identity);
         }
     }
 }
