@@ -9,17 +9,6 @@ public class LevelManager : MonoBehaviour
     private int meleeKills;
     private int rangedKills;
     private int collectablesPickedUp;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void AddEnemyKilledType(WeaponType killedType)
     {

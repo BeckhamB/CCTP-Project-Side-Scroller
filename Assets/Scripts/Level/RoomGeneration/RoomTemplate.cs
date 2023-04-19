@@ -15,7 +15,13 @@ public class RoomTemplate : MonoBehaviour
 
     public GameObject exitPortal;
     private bool spawnedPortal = false;
+    private int numOfRooms;
+    private int maxNumOfRooms = 13;
 
+    private void Start()
+    {
+        numOfRooms++;
+    }
     private void FixedUpdate()
     {
         if(spawnTimer <= 0 && !spawnedPortal)
@@ -27,5 +33,18 @@ public class RoomTemplate : MonoBehaviour
         {
             spawnTimer -= Time.deltaTime;
         }
+    }
+
+    public void AddNumOfRooms(int numberOfRoomsAdded)
+    {
+        numOfRooms += numberOfRoomsAdded;
+    }
+    public int GetNumOfRooms()
+    {
+        return numOfRooms;
+    }
+    public int GetMaxNumOfRooms()
+    {
+        return maxNumOfRooms;
     }
 }

@@ -11,6 +11,7 @@ public class RoomGenerator : MonoBehaviour
     private bool isSpawned = false;
     public List<Rooms> roomList = new List<Rooms>();
 
+
     private void Start()
     {
         roomTemplate = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplate>();
@@ -28,86 +29,159 @@ public class RoomGenerator : MonoBehaviour
         {
             if (doorDirection == 1)
             {
-                int randomNumber = Random.Range(1, 101);
-                List<Rooms> possibleRooms = new List<Rooms>();
-                foreach (Rooms room in roomTemplate.bottomRooms)
+                if (roomTemplate.GetNumOfRooms() == (roomTemplate.GetMaxNumOfRooms() - 2))
                 {
-                    if(randomNumber <= room.weight)
+                    if (Random.Range(1, 101) <= 25)
                     {
-                        possibleRooms.Add(room);
-                    }  
+                        roomTemplate.AddNumOfRooms(1);
+                        Instantiate(roomTemplate.bottomRooms[0].room, transform.position, Quaternion.identity);
+                        Debug.Log("25U");
+                    }
+                    else
+                    {
+                        SpawnBottomRooms();
+                    }
                 }
-                if (possibleRooms.Count > 0)
+                else if (roomTemplate.GetNumOfRooms() == (roomTemplate.GetMaxNumOfRooms() - 1))
                 {
-                    GameObject selectedRoom = possibleRooms[Random.Range(0, possibleRooms.Count)].room;
-                    Instantiate(selectedRoom, transform.position, Quaternion.identity);
+                    if (Random.Range(1, 101) <= 50)
+                    {
+                        roomTemplate.AddNumOfRooms(1);
+                        Instantiate(roomTemplate.bottomRooms[0].room, transform.position, Quaternion.identity);
+                        Debug.Log("50U");
+                    }
+                    else
+                    {
+                        SpawnBottomRooms();
+                    }
+                }
+                else if (roomTemplate.GetNumOfRooms() >= (roomTemplate.GetMaxNumOfRooms()))
+                {
+                    roomTemplate.AddNumOfRooms(1);
+                    Instantiate(roomTemplate.bottomRooms[0].room, transform.position, Quaternion.identity);
+                    Debug.Log("100U");
                 }
                 else
                 {
-                    Instantiate(roomTemplate.bottomRooms[1].room, transform.position, Quaternion.identity);
-                }  
+                    SpawnBottomRooms();
+                } 
             }
             else if (doorDirection == 2)
             {
-                int randomNumber = Random.Range(1, 101);
-                List<Rooms> possibleRooms = new List<Rooms>();
-                foreach (Rooms room in roomTemplate.leftRooms)
+                if (roomTemplate.GetNumOfRooms() == (roomTemplate.GetMaxNumOfRooms() - 2))
                 {
-                    if (randomNumber <= room.weight)
+                    if (Random.Range(1, 101) <= 25)
                     {
-                        possibleRooms.Add(room);
+                        roomTemplate.AddNumOfRooms(1);
+                        Instantiate(roomTemplate.leftRooms[0].room, transform.position, Quaternion.identity);
+                        Debug.Log("25R");
+                    }
+                    else
+                    {
+                        SpawnLeftRooms();
                     }
                 }
-                if (possibleRooms.Count > 0)
+                else if (roomTemplate.GetNumOfRooms() == (roomTemplate.GetMaxNumOfRooms() - 1))
                 {
-                    GameObject selectedRoom = possibleRooms[Random.Range(0, possibleRooms.Count)].room;
-                    Instantiate(selectedRoom, transform.position, Quaternion.identity);
+                    if (Random.Range(1, 101) <= 50)
+                    {
+                        roomTemplate.AddNumOfRooms(1);
+                        Instantiate(roomTemplate.leftRooms[0].room, transform.position, Quaternion.identity);
+                        Debug.Log("50R");
+                    }
+                    else
+                    {
+                        SpawnLeftRooms();
+                    }
+                }
+                else if (roomTemplate.GetNumOfRooms() >= (roomTemplate.GetMaxNumOfRooms()))
+                {
+                    roomTemplate.AddNumOfRooms(1);
+                    Instantiate(roomTemplate.leftRooms[0].room, transform.position, Quaternion.identity);
+                    Debug.Log("100R");
                 }
                 else
                 {
-                    Instantiate(roomTemplate.leftRooms[1].room, transform.position, Quaternion.identity);
+                    SpawnLeftRooms();
                 }
             }
             else if (doorDirection == 3)
             {
-                int randomNumber = Random.Range(1, 101);
-                List<Rooms> possibleRooms = new List<Rooms>();
-                foreach (Rooms room in roomTemplate.topRooms)
+                if (roomTemplate.GetNumOfRooms() == (roomTemplate.GetMaxNumOfRooms() - 2))
                 {
-                    if (randomNumber <= room.weight)
+                    if (Random.Range(1, 101) <= 25)
                     {
-                        possibleRooms.Add(room);
+                        roomTemplate.AddNumOfRooms(1);
+                        Instantiate(roomTemplate.topRooms[0].room, transform.position, Quaternion.identity);
+                        Debug.Log("25D");
+                    }
+                    else
+                    {
+                        SpawnTopRooms();
                     }
                 }
-                if (possibleRooms.Count > 0)
+                else if (roomTemplate.GetNumOfRooms() == (roomTemplate.GetMaxNumOfRooms() - 1))
                 {
-                    GameObject selectedRoom = possibleRooms[Random.Range(0, possibleRooms.Count)].room;
-                    Instantiate(selectedRoom, transform.position, Quaternion.identity);
+                    if (Random.Range(1, 101) <= 50)
+                    {
+                        roomTemplate.AddNumOfRooms(1);
+                        Instantiate(roomTemplate.topRooms[0].room, transform.position, Quaternion.identity);
+                        Debug.Log("50D");
+                    }
+                    else
+                    {
+                        SpawnTopRooms();
+                    }
+                }
+                else if (roomTemplate.GetNumOfRooms() >= (roomTemplate.GetMaxNumOfRooms()))
+                {
+                    roomTemplate.AddNumOfRooms(1);
+                    Instantiate(roomTemplate.topRooms[0].room, transform.position, Quaternion.identity);
+                    Debug.Log("100D");
                 }
                 else
                 {
-                    Instantiate(roomTemplate.topRooms[1].room, transform.position, Quaternion.identity);
+                    SpawnTopRooms();
                 }
+                
             }
             else if (doorDirection == 4)
             {
-                int randomNumber = Random.Range(1, 101);
-                List<Rooms> possibleRooms = new List<Rooms>();
-                foreach (Rooms room in roomTemplate.rightRooms)
+                if (roomTemplate.GetNumOfRooms() == (roomTemplate.GetMaxNumOfRooms() - 2))
                 {
-                    if (randomNumber <= room.weight)
+                    if (Random.Range(1, 101) <= 25)
                     {
-                        possibleRooms.Add(room);
+                        roomTemplate.AddNumOfRooms(1);
+                        Instantiate(roomTemplate.rightRooms[0].room, transform.position, Quaternion.identity);
+                        Debug.Log("25L");
+                    }
+                    else
+                    {
+                        SpawnRightRooms();
                     }
                 }
-                if (possibleRooms.Count > 0)
+                else if (roomTemplate.GetNumOfRooms() == (roomTemplate.GetMaxNumOfRooms() - 1))
                 {
-                    GameObject selectedRoom = possibleRooms[Random.Range(0, possibleRooms.Count)].room;
-                    Instantiate(selectedRoom, transform.position, Quaternion.identity);
+                    if (Random.Range(1, 101) <= 50)
+                    {
+                        roomTemplate.AddNumOfRooms(1);
+                        Instantiate(roomTemplate.rightRooms[0].room, transform.position, Quaternion.identity);
+                        Debug.Log("50L");
+                    }
+                    else
+                    {
+                        SpawnRightRooms();
+                    }
+                }
+                else if (roomTemplate.GetNumOfRooms() >= (roomTemplate.GetMaxNumOfRooms()))
+                {
+                    roomTemplate.AddNumOfRooms(1);
+                    Instantiate(roomTemplate.rightRooms[0].room, transform.position, Quaternion.identity);
+                    Debug.Log("100L");
                 }
                 else
                 {
-                    Instantiate(roomTemplate.rightRooms[1].room, transform.position, Quaternion.identity);
+                    SpawnRightRooms();
                 }
             }
             isSpawned = true;
@@ -125,6 +199,100 @@ public class RoomGenerator : MonoBehaviour
                 Destroy(gameObject);
             }
             isSpawned = true;
+        }
+    }
+
+    private void SpawnBottomRooms()
+    {
+        int randomNumber = Random.Range(1, 101);
+        List<Rooms> possibleRooms = new List<Rooms>();
+        foreach (Rooms room in roomTemplate.bottomRooms)
+        {
+            if (randomNumber <= room.weight)
+            {
+                possibleRooms.Add(room);
+            }
+        }
+        if (possibleRooms.Count > 0)
+        {
+            GameObject selectedRoom = possibleRooms[Random.Range(0, possibleRooms.Count)].room;
+            Instantiate(selectedRoom, transform.position, Quaternion.identity);
+            roomTemplate.AddNumOfRooms(1);
+        }
+        else
+        {
+            Instantiate(roomTemplate.bottomRooms[1].room, transform.position, Quaternion.identity);
+            roomTemplate.AddNumOfRooms(1);
+        }
+    }
+    private void SpawnLeftRooms()
+    {
+        int randomNumber = Random.Range(1, 101);
+        List<Rooms> possibleRooms = new List<Rooms>();
+        foreach (Rooms room in roomTemplate.leftRooms)
+        {
+            if (randomNumber <= room.weight)
+            {
+                possibleRooms.Add(room);
+            }
+        }
+        if (possibleRooms.Count > 0)
+        {
+            GameObject selectedRoom = possibleRooms[Random.Range(0, possibleRooms.Count)].room;
+            roomTemplate.AddNumOfRooms(1);
+            Instantiate(selectedRoom, transform.position, Quaternion.identity);
+
+        }
+        else
+        {
+            roomTemplate.AddNumOfRooms(1);
+            Instantiate(roomTemplate.leftRooms[1].room, transform.position, Quaternion.identity);
+        }
+    }
+    private void SpawnTopRooms()
+    {
+        int randomNumber = Random.Range(1, 101);
+        List<Rooms> possibleRooms = new List<Rooms>();
+        foreach (Rooms room in roomTemplate.topRooms)
+        {
+            if (randomNumber <= room.weight)
+            {
+                possibleRooms.Add(room);
+            }
+        }
+        if (possibleRooms.Count > 0)
+        {
+            GameObject selectedRoom = possibleRooms[Random.Range(0, possibleRooms.Count)].room;
+            roomTemplate.AddNumOfRooms(1);
+            Instantiate(selectedRoom, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            roomTemplate.AddNumOfRooms(1);
+            Instantiate(roomTemplate.topRooms[1].room, transform.position, Quaternion.identity);
+        }
+    }
+    private void SpawnRightRooms()
+    {
+        int randomNumber = Random.Range(1, 101);
+        List<Rooms> possibleRooms = new List<Rooms>();
+        foreach (Rooms room in roomTemplate.rightRooms)
+        {
+            if (randomNumber <= room.weight)
+            {
+                possibleRooms.Add(room);
+            }
+        }
+        if (possibleRooms.Count > 0)
+        {
+            GameObject selectedRoom = possibleRooms[Random.Range(0, possibleRooms.Count)].room;
+            roomTemplate.AddNumOfRooms(1);
+            Instantiate(selectedRoom, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            roomTemplate.AddNumOfRooms(1);
+            Instantiate(roomTemplate.rightRooms[1].room, transform.position, Quaternion.identity);
         }
     }
 }

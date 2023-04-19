@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3757536985990141640}
   - component: {fileID: 3757536985990141643}
   m_Layer: 0
-  m_Name: TempRoom
+  m_Name: WTempRoom
   m_TagString: Rooms
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
