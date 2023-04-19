@@ -35,7 +35,6 @@ public class RoomGenerator : MonoBehaviour
                     {
                         roomTemplate.AddNumOfRooms(1);
                         Instantiate(roomTemplate.bottomRooms[0].room, transform.position, Quaternion.identity);
-                        Debug.Log("25U");
                     }
                     else
                     {
@@ -48,7 +47,6 @@ public class RoomGenerator : MonoBehaviour
                     {
                         roomTemplate.AddNumOfRooms(1);
                         Instantiate(roomTemplate.bottomRooms[0].room, transform.position, Quaternion.identity);
-                        Debug.Log("50U");
                     }
                     else
                     {
@@ -59,7 +57,6 @@ public class RoomGenerator : MonoBehaviour
                 {
                     roomTemplate.AddNumOfRooms(1);
                     Instantiate(roomTemplate.bottomRooms[0].room, transform.position, Quaternion.identity);
-                    Debug.Log("100U");
                 }
                 else
                 {
@@ -74,7 +71,6 @@ public class RoomGenerator : MonoBehaviour
                     {
                         roomTemplate.AddNumOfRooms(1);
                         Instantiate(roomTemplate.leftRooms[0].room, transform.position, Quaternion.identity);
-                        Debug.Log("25R");
                     }
                     else
                     {
@@ -87,7 +83,6 @@ public class RoomGenerator : MonoBehaviour
                     {
                         roomTemplate.AddNumOfRooms(1);
                         Instantiate(roomTemplate.leftRooms[0].room, transform.position, Quaternion.identity);
-                        Debug.Log("50R");
                     }
                     else
                     {
@@ -98,7 +93,6 @@ public class RoomGenerator : MonoBehaviour
                 {
                     roomTemplate.AddNumOfRooms(1);
                     Instantiate(roomTemplate.leftRooms[0].room, transform.position, Quaternion.identity);
-                    Debug.Log("100R");
                 }
                 else
                 {
@@ -113,7 +107,6 @@ public class RoomGenerator : MonoBehaviour
                     {
                         roomTemplate.AddNumOfRooms(1);
                         Instantiate(roomTemplate.topRooms[0].room, transform.position, Quaternion.identity);
-                        Debug.Log("25D");
                     }
                     else
                     {
@@ -126,7 +119,6 @@ public class RoomGenerator : MonoBehaviour
                     {
                         roomTemplate.AddNumOfRooms(1);
                         Instantiate(roomTemplate.topRooms[0].room, transform.position, Quaternion.identity);
-                        Debug.Log("50D");
                     }
                     else
                     {
@@ -137,7 +129,6 @@ public class RoomGenerator : MonoBehaviour
                 {
                     roomTemplate.AddNumOfRooms(1);
                     Instantiate(roomTemplate.topRooms[0].room, transform.position, Quaternion.identity);
-                    Debug.Log("100D");
                 }
                 else
                 {
@@ -153,7 +144,6 @@ public class RoomGenerator : MonoBehaviour
                     {
                         roomTemplate.AddNumOfRooms(1);
                         Instantiate(roomTemplate.rightRooms[0].room, transform.position, Quaternion.identity);
-                        Debug.Log("25L");
                     }
                     else
                     {
@@ -166,7 +156,6 @@ public class RoomGenerator : MonoBehaviour
                     {
                         roomTemplate.AddNumOfRooms(1);
                         Instantiate(roomTemplate.rightRooms[0].room, transform.position, Quaternion.identity);
-                        Debug.Log("50L");
                     }
                     else
                     {
@@ -177,7 +166,6 @@ public class RoomGenerator : MonoBehaviour
                 {
                     roomTemplate.AddNumOfRooms(1);
                     Instantiate(roomTemplate.rightRooms[0].room, transform.position, Quaternion.identity);
-                    Debug.Log("100L");
                 }
                 else
                 {
