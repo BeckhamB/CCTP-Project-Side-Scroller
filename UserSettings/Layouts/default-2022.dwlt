@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -189,8 +189,8 @@ MonoBehaviour:
     y: 0
     width: 386
     height: 478
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -269,8 +269,8 @@ MonoBehaviour:
     y: 0
     width: 378
     height: 947
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -337,9 +337,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 361b0000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 0cfbffff
+      m_SelectedIDs: a076f6ff
+      m_LastClickedID: -624992
+      m_ExpandedIDs: b01af6ffba1af6ffa076f6ffa276f6ff6c77f6ff1aa2f6ff24a2f6ffd6c3f6ffe0c3f6ffb608f7ffc008f7ffe417f7ffee17f7ff7831f7ff8231f7ff8040f7ff8a40f7ffe044f8ffea44f8ffd287f8ffdc87f8ff6291f8ff6c91f8ff3699f8ff4099f8ffbc9bf8ffc69bf8ffc01af9ffca1af9ff9c27f9ffa627f9ffc440f9ffce40f9ff2c9ef9ff369ef9ff66a8f9ff70a8f9ff82adf9ff8cadf9ff62b4f9ff66b4f9ffc6faffff0cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -655,9 +655,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 4.0695643, y: -3.0586636, z: -6.347301}
+    m_Target: {x: 128.76546, y: -6.43864, z: -0.71247244}
     speed: 2
-    m_Value: {x: 4.0695643, y: -3.0586636, z: -6.347301}
+    m_Value: {x: 128.76546, y: -6.43864, z: -0.71247244}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -707,9 +707,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 8.841672
+    m_Target: 127.07949
     speed: 2
-    m_Value: 8.841672
+    m_Value: 127.07949
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -876,13 +876,13 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Level
+    - Assets/Scripts/Level/RoomGeneration/ScriptableObjects
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Level
+  - Assets/Scripts/Level/RoomGeneration/ScriptableObjects
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\University Work\Third Year\Comprehensive Creative Technologies
     Project\CCTP Project Side Scroller
@@ -890,9 +890,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: bc820000
-    m_LastClickedID: 33468
-    m_ExpandedIDs: 000000009e820000b6820000ba820000bc820000c4820000f0820000
+    m_SelectedIDs: ae9e0000
+    m_LastClickedID: 40622
+    m_ExpandedIDs: 00000000988b0000b08b0000b48b0000b68b0000be8b0000ac970000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -920,7 +920,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000009e820000
+    m_ExpandedIDs: 00000000988b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -991,7 +991,7 @@ MonoBehaviour:
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-    m_Text: Inspector
+    m_Text: Debug
     m_Image: {fileID: -2667387946076563598, guid: 0000000000000000d000000000000000,
       type: 0}
     m_Tooltip: 
@@ -1014,7 +1014,7 @@ MonoBehaviour:
   m_LastInspectedObjectInstanceID: -1
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
-  m_InspectorMode: 0
+  m_InspectorMode: 1
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
