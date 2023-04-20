@@ -655,8 +655,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platforms:
-  - {fileID: 11400000, guid: 03f7aa623696a9d4299cc1ac02d43220, type: 2}
   - {fileID: 11400000, guid: 0b2f07813b85e8d4198abe2975b38258, type: 2}
+  - {fileID: 11400000, guid: 03f7aa623696a9d4299cc1ac02d43220, type: 2}
+  - {fileID: 11400000, guid: b14939b5a2c172340b8c21c4438d4425, type: 2}
+  - {fileID: 11400000, guid: 06d5798b1629f8d468012a187537760f, type: 2}
 --- !u!1 &7778010797857538575
 GameObject:
   m_ObjectHideFlags: 0

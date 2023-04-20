@@ -6,6 +6,7 @@ public class PlayerInRoom : MonoBehaviour
 {
     private LevelManager levelManager;
     private bool isInRoom;
+    private bool hasPlayerEnteredRoomBefore;
     public bool spawnedObjects = false;
     private float isInRoomTimer = 0f;
     private AddPlatforms[] addPlatforms;
@@ -44,6 +45,10 @@ public class PlayerInRoom : MonoBehaviour
         {
             isInRoom = true;
             addPlatforms = gameObject.GetComponentsInChildren<AddPlatforms>(); 
+            if(!hasPlayerEnteredRoomBefore)
+            {
+                hasPlayerEnteredRoomBefore = true;
+            }
         }
     }
 

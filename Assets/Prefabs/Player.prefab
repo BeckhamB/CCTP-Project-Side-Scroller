@@ -133,7 +133,7 @@ Transform:
   - {fileID: 2576079281076187803}
   - {fileID: 5683462501319406539}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8260373097095502302
 MonoBehaviour:
@@ -287,7 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a92c43a94da84d4ba89bdf127795573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPoint: {fileID: 0}
+  attackPoint: {fileID: 5683462501319406539}
   attackRange: 0.5
   enemyLayer:
     serializedVersion: 2
