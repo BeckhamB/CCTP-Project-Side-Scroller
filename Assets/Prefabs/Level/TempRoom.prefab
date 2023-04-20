@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3041388580963149031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3041388580963149029}
+  - component: {fileID: 3041388580963149030}
+  m_Layer: 0
+  m_Name: TempRoom
+  m_TagString: Rooms
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3041388580963149029
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3041388580963149031}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3041388580963149030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3041388580963149031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8754dfbf37aef0f40978d74701690f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topRooms:
+  - {fileID: 11400000, guid: bf00b4c08acfa2f44b53feb59736049a, type: 2}
+  - {fileID: 11400000, guid: d25f9a10e0a044f4f8a1d22179e2b5f0, type: 2}
+  - {fileID: 11400000, guid: e4170792f379d0f43918747abbb7b6f8, type: 2}
+  - {fileID: 11400000, guid: 1a884e139c7860549885a6a0bba09350, type: 2}
+  - {fileID: 11400000, guid: d0460f838bd81ae46b9a36c5ca266fb0, type: 2}
+  - {fileID: 11400000, guid: acdfccf824bcaaf48bcb49e9e9c637df, type: 2}
+  - {fileID: 11400000, guid: 3968b1ae59f567240a15e0299bdc0f02, type: 2}
+  - {fileID: 11400000, guid: f5ab814d28c1f0043b29375a83c8bc8b, type: 2}
+  rightRooms:
+  - {fileID: 11400000, guid: 46ef1f9642d089347b66d49c788b2f66, type: 2}
+  - {fileID: 11400000, guid: b33827cacf5604346bc466aa5244f545, type: 2}
+  - {fileID: 11400000, guid: 49757267be9b6494fab7f62ecf0a6bc4, type: 2}
+  - {fileID: 11400000, guid: 1a884e139c7860549885a6a0bba09350, type: 2}
+  - {fileID: 11400000, guid: acdfccf824bcaaf48bcb49e9e9c637df, type: 2}
+  - {fileID: 11400000, guid: f5ab814d28c1f0043b29375a83c8bc8b, type: 2}
+  - {fileID: 11400000, guid: a88c381c59c31d3428ba3de3ad757c8d, type: 2}
+  - {fileID: 11400000, guid: 3968b1ae59f567240a15e0299bdc0f02, type: 2}
+  bottomRooms:
+  - {fileID: 11400000, guid: 9c66dbafedaa7b14788ff64f8ec0d8c3, type: 2}
+  - {fileID: 11400000, guid: 70bc941b8af5e464c81e5dfdf63b00a3, type: 2}
+  - {fileID: 11400000, guid: b33827cacf5604346bc466aa5244f545, type: 2}
+  - {fileID: 11400000, guid: a88c381c59c31d3428ba3de3ad757c8d, type: 2}
+  - {fileID: 11400000, guid: d25f9a10e0a044f4f8a1d22179e2b5f0, type: 2}
+  - {fileID: 11400000, guid: d0460f838bd81ae46b9a36c5ca266fb0, type: 2}
+  - {fileID: 11400000, guid: acdfccf824bcaaf48bcb49e9e9c637df, type: 2}
+  - {fileID: 11400000, guid: f5ab814d28c1f0043b29375a83c8bc8b, type: 2}
+  leftRooms:
+  - {fileID: 11400000, guid: 32fdc1c5756d0264496f9bbc1370f56f, type: 2}
+  - {fileID: 11400000, guid: e4170792f379d0f43918747abbb7b6f8, type: 2}
+  - {fileID: 11400000, guid: 49757267be9b6494fab7f62ecf0a6bc4, type: 2}
+  - {fileID: 11400000, guid: 70bc941b8af5e464c81e5dfdf63b00a3, type: 2}
+  - {fileID: 11400000, guid: 3968b1ae59f567240a15e0299bdc0f02, type: 2}
+  - {fileID: 11400000, guid: d0460f838bd81ae46b9a36c5ca266fb0, type: 2}
+  - {fileID: 11400000, guid: a88c381c59c31d3428ba3de3ad757c8d, type: 2}
+  - {fileID: 11400000, guid: f5ab814d28c1f0043b29375a83c8bc8b, type: 2}
+  closedRoom: {fileID: 906970681001889875, guid: 0721e3c5ffdfa6a4a812fd33b3c3eafa,
+    type: 3}
+  spawnedRooms: []
+  spawnTimer: 2
+  levelManagerPrefab: {fileID: 1816642406231175108, guid: f26ddcce9a55bd24ab7e69520c53caf3,
+    type: 3}
+  exitPortal: {fileID: 8225232515087724820, guid: 300c08295969a004194e19e83812d56c,
+    type: 3}

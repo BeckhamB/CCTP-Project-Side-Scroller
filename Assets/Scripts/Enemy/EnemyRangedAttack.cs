@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RangedAttack : MonoBehaviour
+public class EnemyRangedAttack : MonoBehaviour
 {
     private PlayerManager playerManager;
 
@@ -12,10 +12,9 @@ public class RangedAttack : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if(collision.CompareTag("Player"))
         {
-            playerManager.SetRangedHitTracker(1);
-            collision.GetComponent<Enemy>().SetHealth(-20, WeaponType.RANGED);
+            collision.GetComponent<PlayerManager>().SetHealth(-20, EnemyWeaponType.RANGED);
             Destroy(this.gameObject);
         }
     }

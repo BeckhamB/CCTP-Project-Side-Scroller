@@ -10,10 +10,12 @@ public class RoomGenerator : MonoBehaviour
     private int randomRoom;
     private bool isSpawned = false;
     public List<Rooms> roomList = new List<Rooms>();
+    private LevelManager levelManager;
 
 
     private void Start()
     {
+        levelManager = GameObject.FindGameObjectWithTag("Level").GetComponent<LevelManager>();
         roomTemplate = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplate>();
         StartCoroutine(StartSpawn());
     }
@@ -29,7 +31,7 @@ public class RoomGenerator : MonoBehaviour
         {
             if (doorDirection == 1)
             {
-                if (roomTemplate.GetNumOfRooms() == (roomTemplate.GetMaxNumOfRooms() - 2))
+                if (roomTemplate.GetNumOfRooms() == (levelManager.TotalMaxNumOfRooms() - 2))
                 {
                     if (Random.Range(1, 101) <= 25)
                     {
@@ -41,7 +43,7 @@ public class RoomGenerator : MonoBehaviour
                         SpawnBottomRooms();
                     }
                 }
-                else if (roomTemplate.GetNumOfRooms() == (roomTemplate.GetMaxNumOfRooms() - 1))
+                else if (roomTemplate.GetNumOfRooms() == (levelManager.TotalMaxNumOfRooms() - 1))
                 {
                     if (Random.Range(1, 101) <= 50)
                     {
@@ -53,7 +55,7 @@ public class RoomGenerator : MonoBehaviour
                         SpawnBottomRooms();
                     }
                 }
-                else if (roomTemplate.GetNumOfRooms() >= (roomTemplate.GetMaxNumOfRooms()))
+                else if (roomTemplate.GetNumOfRooms() >= (levelManager.TotalMaxNumOfRooms()))
                 {
                     roomTemplate.AddNumOfRooms(1);
                     Instantiate(roomTemplate.bottomRooms[0].room, transform.position, Quaternion.identity);
@@ -65,7 +67,7 @@ public class RoomGenerator : MonoBehaviour
             }
             else if (doorDirection == 2)
             {
-                if (roomTemplate.GetNumOfRooms() == (roomTemplate.GetMaxNumOfRooms() - 2))
+                if (roomTemplate.GetNumOfRooms() == (levelManager.TotalMaxNumOfRooms() - 2))
                 {
                     if (Random.Range(1, 101) <= 25)
                     {
@@ -77,7 +79,7 @@ public class RoomGenerator : MonoBehaviour
                         SpawnLeftRooms();
                     }
                 }
-                else if (roomTemplate.GetNumOfRooms() == (roomTemplate.GetMaxNumOfRooms() - 1))
+                else if (roomTemplate.GetNumOfRooms() == (levelManager.TotalMaxNumOfRooms() - 1))
                 {
                     if (Random.Range(1, 101) <= 50)
                     {
@@ -89,7 +91,7 @@ public class RoomGenerator : MonoBehaviour
                         SpawnLeftRooms();
                     }
                 }
-                else if (roomTemplate.GetNumOfRooms() >= (roomTemplate.GetMaxNumOfRooms()))
+                else if (roomTemplate.GetNumOfRooms() >= (levelManager.TotalMaxNumOfRooms()))
                 {
                     roomTemplate.AddNumOfRooms(1);
                     Instantiate(roomTemplate.leftRooms[0].room, transform.position, Quaternion.identity);
@@ -101,7 +103,7 @@ public class RoomGenerator : MonoBehaviour
             }
             else if (doorDirection == 3)
             {
-                if (roomTemplate.GetNumOfRooms() == (roomTemplate.GetMaxNumOfRooms() - 2))
+                if (roomTemplate.GetNumOfRooms() == (levelManager.TotalMaxNumOfRooms() - 2))
                 {
                     if (Random.Range(1, 101) <= 25)
                     {
@@ -113,7 +115,7 @@ public class RoomGenerator : MonoBehaviour
                         SpawnTopRooms();
                     }
                 }
-                else if (roomTemplate.GetNumOfRooms() == (roomTemplate.GetMaxNumOfRooms() - 1))
+                else if (roomTemplate.GetNumOfRooms() == (levelManager.TotalMaxNumOfRooms() - 1))
                 {
                     if (Random.Range(1, 101) <= 50)
                     {
@@ -125,7 +127,7 @@ public class RoomGenerator : MonoBehaviour
                         SpawnTopRooms();
                     }
                 }
-                else if (roomTemplate.GetNumOfRooms() >= (roomTemplate.GetMaxNumOfRooms()))
+                else if (roomTemplate.GetNumOfRooms() >= (levelManager.TotalMaxNumOfRooms()))
                 {
                     roomTemplate.AddNumOfRooms(1);
                     Instantiate(roomTemplate.topRooms[0].room, transform.position, Quaternion.identity);
@@ -138,7 +140,7 @@ public class RoomGenerator : MonoBehaviour
             }
             else if (doorDirection == 4)
             {
-                if (roomTemplate.GetNumOfRooms() == (roomTemplate.GetMaxNumOfRooms() - 2))
+                if (roomTemplate.GetNumOfRooms() == (levelManager.TotalMaxNumOfRooms() - 2))
                 {
                     if (Random.Range(1, 101) <= 25)
                     {
@@ -150,7 +152,7 @@ public class RoomGenerator : MonoBehaviour
                         SpawnRightRooms();
                     }
                 }
-                else if (roomTemplate.GetNumOfRooms() == (roomTemplate.GetMaxNumOfRooms() - 1))
+                else if (roomTemplate.GetNumOfRooms() == (levelManager.TotalMaxNumOfRooms() - 1))
                 {
                     if (Random.Range(1, 101) <= 50)
                     {
@@ -162,7 +164,7 @@ public class RoomGenerator : MonoBehaviour
                         SpawnRightRooms();
                     }
                 }
-                else if (roomTemplate.GetNumOfRooms() >= (roomTemplate.GetMaxNumOfRooms()))
+                else if (roomTemplate.GetNumOfRooms() >= (levelManager.TotalMaxNumOfRooms()))
                 {
                     roomTemplate.AddNumOfRooms(1);
                     Instantiate(roomTemplate.rightRooms[0].room, transform.position, Quaternion.identity);

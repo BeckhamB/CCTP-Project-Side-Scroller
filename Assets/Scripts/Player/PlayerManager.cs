@@ -15,7 +15,8 @@ public class PlayerManager : MonoBehaviour
     public LayerMask enemyLayer;
     private int meleeHitTracker = 0;
     private int rangedHitTracker = 0;
-
+    private int currentHealth;
+    private int maxHealth = 100;
     private int currentCollectableAmount;
 
     public void Attack()
@@ -37,7 +38,11 @@ public class PlayerManager : MonoBehaviour
     {
         rangedHitTracker += hitAmount;
     }
-    private void OnDrawGizmosSelected()
+    public void SetHealth(int HealthEffect, EnemyWeaponType TypeEffect)
+    {
+        currentHealth += HealthEffect;
+    }
+        private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }

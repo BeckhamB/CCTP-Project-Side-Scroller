@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfe1fa80b9ea71a4c8d79accf8ff1849, type: 3}
+  m_Name: GroundedRangedEnemy
+  m_EditorClassIdentifier: 
+  enemies: {fileID: 1727037332634859533, guid: 8216f4aa7020096458f0b1a92c279ed7, type: 3}
+  enemyName: GroundedRangedEnemy
+  weight: 50
+  attackTimer: 2
+  moveSpeed: 2
+  maxHealth: 100

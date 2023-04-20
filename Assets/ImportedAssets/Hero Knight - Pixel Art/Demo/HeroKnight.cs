@@ -29,6 +29,9 @@ public class HeroKnight : MonoBehaviour {
 
     private float travelTimer = 1.5f;
     private float currentTravelTime;
+    private float attackSpeedTimer = 1f;
+    private float currentAttackSpeed;
+    private bool canRangedAttack = true;
     private GameObject rangedAttack;
     public GameObject bubblePrefab;
     public GameObject attackPoint;
@@ -65,13 +68,25 @@ public class HeroKnight : MonoBehaviour {
                 currentTravelTime += Time.deltaTime;
             }
         }
+        if(!canRangedAttack)
+        {
+            if (currentAttackSpeed > attackSpeedTimer)
+            {
+                canRangedAttack = true;
+                currentAttackSpeed = 0;
+            }
+            else
+            {
+                currentAttackSpeed += Time.deltaTime;
+            }
+        }
         if(this.GetComponent<SpriteRenderer>().flipX)
         {
-            attackPoint.transform.position = new Vector2(this.gameObject.transform.position.x + (-defaultAttackPoint.x), this.gameObject.transform.position.y + defaultAttackPoint.y);
+            attackPoint.transform.position = new Vector2(this.transform.position.x - 0.75f, this.transform.position.y + 0.75f);
         }
         else
         {
-            attackPoint.transform.position = new Vector2(this.gameObject.transform.position.x + (defaultAttackPoint.x), this.gameObject.transform.position.y + defaultAttackPoint.y);
+            attackPoint.transform.position = new Vector2(this.transform.position.x + 0.75f, this.transform.position.y + 0.75f);
         }
         // Increase timer that controls attack combo
         m_timeSinceAttack += Time.deltaTime;
@@ -162,8 +177,9 @@ public class HeroKnight : MonoBehaviour {
         else if (Input.GetMouseButtonDown(1) && !m_rolling)
         {
             
-            if (rangedAttack == null)
+            if (canRangedAttack)
             {
+                canRangedAttack = false;
                 m_animator.SetTrigger("Block");
                 m_animator.SetBool("IdleBlock", true);
                 if (this.GetComponent<SpriteRenderer>().flipX)

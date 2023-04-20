@@ -2,23 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AddPlatforms : MonoBehaviour
+public class AddEnemies : MonoBehaviour
 {
-    public GameObject platformSpawner;
-    private bool platformsSpawned = false;
+    public GameObject enemySpawner;
+    private bool enemiesSpawned = false;
     private GameObject overlapRoom;
 
     public void CheckIfSpawned()
     {
         if (overlapRoom != null && !overlapRoom.GetComponent<PlayerInRoom>().GetSpawnedPlatforms())
         {
-            Instantiate(platformSpawner, transform.position, Quaternion.identity);
-            platformsSpawned = true;
+            Instantiate(enemySpawner, transform.position, Quaternion.identity);
+            enemiesSpawned = true;
         }
     }
     private void Update()
     {
-        if (platformsSpawned && overlapRoom != null)
+        if (enemiesSpawned && overlapRoom != null)
         {
             overlapRoom.GetComponent<PlayerInRoom>().SetSpawnedPlatforms(true);
             //Destroy(this.gameObject);
@@ -29,7 +29,9 @@ public class AddPlatforms : MonoBehaviour
         if (collision.GetComponent<PlayerInRoom>() != null)
         {
             overlapRoom = collision.gameObject;
-            
+
         }
+
+
     }
 }

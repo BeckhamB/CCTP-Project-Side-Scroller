@@ -7,9 +7,11 @@ public class PlayerInRoom : MonoBehaviour
     private LevelManager levelManager;
     private bool isInRoom;
     private bool hasPlayerEnteredRoomBefore;
-    public bool spawnedObjects = false;
+    public bool spawnedPlatforms = false;
+    public bool spawnedEnemies = false;
     private float isInRoomTimer = 0f;
     private AddPlatforms[] addPlatforms;
+    private AddEnemies[] addEnemies;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,14 @@ public class PlayerInRoom : MonoBehaviour
                 spawner.CheckIfSpawned();
             }
         }
+        if (addEnemies != null)
+        {
+            foreach (AddEnemies spawner in addEnemies)
+            {
+                spawner.CheckIfSpawned();
+            }
+        }
+
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -44,7 +54,8 @@ public class PlayerInRoom : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isInRoom = true;
-            addPlatforms = gameObject.GetComponentsInChildren<AddPlatforms>(); 
+            addPlatforms = gameObject.GetComponentsInChildren<AddPlatforms>();
+            addEnemies = gameObject.GetComponentsInChildren<AddEnemies>();
             if(!hasPlayerEnteredRoomBefore)
             {
                 hasPlayerEnteredRoomBefore = true;
@@ -64,12 +75,20 @@ public class PlayerInRoom : MonoBehaviour
     {
         return isInRoomTimer;
     }
-    public void SetSpawnedObjects(bool newState)
+    public void SetSpawnedPlatforms(bool newState)
     {
-        spawnedObjects = newState;
+        spawnedPlatforms = newState;
     }
-    public bool GetSpawnedObjects()
+    public bool GetSpawnedPlatforms()
     {
-        return spawnedObjects;
+        return spawnedPlatforms;
+    }
+    public void SetSpawnedEnemies(bool newState)
+    {
+        spawnedEnemies = newState;
+    }
+    public bool GetSpawnedEnemiess()
+    {
+        return spawnedEnemies;
     }
 }

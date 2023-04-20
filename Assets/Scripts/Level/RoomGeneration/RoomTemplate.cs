@@ -13,24 +13,38 @@ public class RoomTemplate : MonoBehaviour
     public List<GameObject> spawnedRooms;
     public float spawnTimer;
 
+    private GameObject[] levelManagerArray;
+    public GameObject levelManagerPrefab;
     public GameObject exitPortal;
     private bool spawnedPortal = false;
     private int numOfRooms;
     private int maxNumOfRooms = 10;
 
+
+    private void Awake()
+    {
+        levelManagerArray = GameObject.FindGameObjectsWithTag("Level");
+        if (levelManagerArray.Length == 0)
+        {
+            Instantiate(levelManagerPrefab);
+
+        }
+
+    }
     private void Start()
     {
+
         numOfRooms++;
     }
     private void FixedUpdate()
     {
-        if(spawnTimer <= 0 && !spawnedPortal)
+        if (spawnTimer <= 0 && !spawnedPortal)
         {
             Instantiate(exitPortal, spawnedRooms[spawnedRooms.Count - 1].transform.position, Quaternion.identity);
-            
+
             spawnedPortal = true;
         }
-        else if(!spawnedPortal)
+        else if (!spawnedPortal)
         {
             spawnTimer -= Time.deltaTime;
         }
@@ -48,8 +62,5 @@ public class RoomTemplate : MonoBehaviour
     {
         return numOfRooms;
     }
-    public int GetMaxNumOfRooms()
-    {
-        return maxNumOfRooms;
-    }
 }
+
