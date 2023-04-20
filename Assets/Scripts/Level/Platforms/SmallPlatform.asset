@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 331c37655139c6849a15b3fa4312b3c1, type: 3}
-  m_Name: RightBottomLeft
+  m_Script: {fileID: 11500000, guid: 37b3b420ff0ef8f4b85416684e342d7d, type: 3}
+  m_Name: SmallPlatform
   m_EditorClassIdentifier: 
-  room: {fileID: 1651386757191569728, guid: 0a4d1f4a310ef994e8eef2223857d4e8, type: 3}
-  roomName: RightBottomLeft
-  weight: 55
+  platform: {fileID: 6310899438358532045, guid: 6389d65b4dfe3c84fb4f1bc2870c8a39,
+    type: 3}
+  platformName: SmallPlatform
+  weight: 30

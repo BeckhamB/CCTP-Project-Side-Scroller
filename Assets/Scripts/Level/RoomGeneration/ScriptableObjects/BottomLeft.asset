@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   room: {fileID: 3612781679385658373, guid: 2968d8f1bae45ab48a3cd38e8b982506, type: 3}
   roomName: BottomLeft
-  weight: 50
+  weight: 20

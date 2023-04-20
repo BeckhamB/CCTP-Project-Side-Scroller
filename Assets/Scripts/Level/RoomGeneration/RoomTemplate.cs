@@ -16,7 +16,7 @@ public class RoomTemplate : MonoBehaviour
     public GameObject exitPortal;
     private bool spawnedPortal = false;
     private int numOfRooms;
-    private int maxNumOfRooms = 13;
+    private int maxNumOfRooms = 10;
 
     private void Start()
     {
@@ -27,6 +27,7 @@ public class RoomTemplate : MonoBehaviour
         if(spawnTimer <= 0 && !spawnedPortal)
         {
             Instantiate(exitPortal, spawnedRooms[spawnedRooms.Count - 1].transform.position, Quaternion.identity);
+            
             spawnedPortal = true;
         }
         else if(!spawnedPortal)
@@ -38,6 +39,10 @@ public class RoomTemplate : MonoBehaviour
     public void AddNumOfRooms(int numberOfRoomsAdded)
     {
         numOfRooms += numberOfRoomsAdded;
+    }
+    public bool GetSpawnedPortal()
+    {
+        return spawnedPortal;
     }
     public int GetNumOfRooms()
     {

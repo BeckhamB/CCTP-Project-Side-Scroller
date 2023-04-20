@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37b3b420ff0ef8f4b85416684e342d7d, type: 3}
-  m_Name: LargePlatform
+  m_Name: MovingPlatform
   m_EditorClassIdentifier: 
-  platform: {fileID: 7357721163039973082, guid: 9538dcb4fe1ba354f8a194b8634b5e96,
+  platform: {fileID: 6310899438358532045, guid: e0d6faa08c03f214e9fce1e10980d9a4,
     type: 3}
-  platformName: LargePlatform
-  weight: 50
+  platformName: MovingPlatform
+  weight: 10
