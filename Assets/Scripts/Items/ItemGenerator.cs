@@ -9,10 +9,10 @@ public class ItemGenerator : MonoBehaviour
     private int defaultTotalWeight = 0;
     private int totalWeight = 0;
     private int sumOfIndexes = 0;
-
+    private LevelManager levelManager;
     private void Start()
     {
-
+        levelManager = GameObject.FindGameObjectWithTag("Level").GetComponent<LevelManager>();
         foreach (Transform child in transform)
         {
             if(child.CompareTag("ItemSpawnPoint"))
@@ -36,6 +36,7 @@ public class ItemGenerator : MonoBehaviour
                 {
                     if (randomNum <= (items[i].weight + sumOfIndexes))
                     {
+                        levelManager.numberOfCollectablesSpawned++;
                         GameObject newItems = Instantiate(items[i].items, itemSP.position, Quaternion.identity);
                         newItems.transform.parent = this.transform;
                         itemSpawned = true;
