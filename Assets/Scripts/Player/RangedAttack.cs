@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class RangedAttack : MonoBehaviour
 {
-    private PlayerManager playerManager;
+    private LevelManager levelManager;
 
     private void Start()
     {
-        playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+        levelManager = GameObject.FindGameObjectWithTag("Level").GetComponent<LevelManager>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
-            playerManager.SetRangedHitTracker(1);
+            levelManager.SetRangedHitTracker(1);
             collision.GetComponent<Enemy>().SetHealth(-20, WeaponType.RANGED);
             Destroy(this.gameObject);
         }

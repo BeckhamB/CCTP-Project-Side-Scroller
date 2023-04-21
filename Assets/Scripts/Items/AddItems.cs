@@ -2,25 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AddEnemies : MonoBehaviour
+public class AddItems : MonoBehaviour
 {
-    public GameObject enemySpawner;
-    private bool enemiesSpawned = false;
+    public GameObject itemSpawner;
+    private bool itemsSpawned = false;
     private GameObject overlapRoom;
 
     public void CheckIfSpawned()
     {
-        if (overlapRoom != null && !overlapRoom.GetComponent<PlayerInRoom>().GetSpawnedEnemies())
+        if (overlapRoom != null && !overlapRoom.GetComponent<PlayerInRoom>().GetSpawnedItems())
         {
-            Instantiate(enemySpawner, transform.position, Quaternion.identity);
-            enemiesSpawned = true;
+            Instantiate(itemSpawner, transform.position, Quaternion.identity);
+            itemsSpawned = true;
         }
     }
     private void Update()
     {
-        if (enemiesSpawned && overlapRoom != null)
+        if (itemsSpawned && overlapRoom != null)
         {
-            overlapRoom.GetComponent<PlayerInRoom>().SetSpawnedEnemies(true);
+            overlapRoom.GetComponent<PlayerInRoom>().SetSpawnedItems(true);
             //Destroy(this.gameObject);
         }
     }

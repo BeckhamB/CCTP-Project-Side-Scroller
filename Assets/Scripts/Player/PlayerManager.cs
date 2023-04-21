@@ -13,11 +13,15 @@ public class PlayerManager : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayer;
-    private int meleeHitTracker = 0;
-    private int rangedHitTracker = 0;
     private int currentHealth;
     private int maxHealth = 100;
     private int currentCollectableAmount;
+    private LevelManager levelManager;
+
+    private void Start()
+    {
+        levelManager = GameObject.FindGameObjectWithTag("Level").GetComponent<LevelManager>();
+    }
 
     public void Attack()
     {
@@ -25,7 +29,7 @@ public class PlayerManager : MonoBehaviour
 
         foreach(Collider2D enemy in enemyHit)
         {
-            meleeHitTracker++;
+            levelManager.SetMeleeHitTracker(1);
             enemy.GetComponent<Enemy>().SetHealth(-40, WeaponType.MELEE);
         }
     }
@@ -34,10 +38,7 @@ public class PlayerManager : MonoBehaviour
     {
         currentCollectableAmount += collectableAmount;
     }
-    public void SetRangedHitTracker(int hitAmount)
-    {
-        rangedHitTracker += hitAmount;
-    }
+    
     public void SetHealth(int HealthEffect, EnemyWeaponType TypeEffect)
     {
         currentHealth += HealthEffect;
@@ -46,4 +47,5 @@ public class PlayerManager : MonoBehaviour
     {
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
+
 }

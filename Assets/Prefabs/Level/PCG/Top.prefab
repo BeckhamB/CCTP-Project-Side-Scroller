@@ -8375,6 +8375,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25b497749ee4a43418c79205400dcae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasPlayerEnteredRoomBefore: 0
+  spawnedPlatforms: 0
+  spawnedEnemies: 0
+  spawnedItems: 0
+  timerStopped: 0
+  isInRoomTimer: 0
 --- !u!1 &7911455575899658287
 GameObject:
   m_ObjectHideFlags: 0
@@ -8724,6 +8730,8 @@ GameObject:
   - component: {fileID: 2256751096744516465}
   - component: {fileID: 1898183020911754238}
   - component: {fileID: 504311001053711577}
+  - component: {fileID: 7947119356137829632}
+  - component: {fileID: 6699604563315061923}
   m_Layer: 0
   m_Name: SpawnPoint (1)
   m_TagString: SpawnPoint
@@ -8836,6 +8844,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformSpawner: {fileID: 7778010796869860195, guid: bb7419c59955ca84a8a34c89ab4d7ec3,
+    type: 3}
+--- !u!114 &7947119356137829632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8735970628792944634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e0bddd4e490647408f693723c2e5d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpawner: {fileID: 4962554956154271190, guid: a1f65e205c02f614699afb9f34b0e769,
+    type: 3}
+--- !u!114 &6699604563315061923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8735970628792944634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fb1c8ba034308e4b888cfac5699f6a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSpawner: {fileID: 5915557170210450326, guid: 1905ee3e13b3f244483802aba108f88e,
     type: 3}
 --- !u!1 &8842280873606940330
 GameObject:

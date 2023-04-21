@@ -36,8 +36,8 @@ public class EnemyGenerator : MonoBehaviour
                 {
                     if (randomNum <= (enemies[i].weight + sumOfIndexes))
                     {
-                        GameObject newPlatforms = Instantiate(enemies[i].enemies, enemySP.position, Quaternion.identity);
-                        newPlatforms.transform.parent = this.transform;
+                        GameObject newEnemies = Instantiate(enemies[i].enemies, enemySP.position, Quaternion.identity);
+                        newEnemies.transform.parent = this.transform;
                         enemySpawned = true;
                         sumOfIndexes = 0;
                         break;

@@ -6954,6 +6954,8 @@ GameObject:
   - component: {fileID: 313287636186370158}
   - component: {fileID: 98834263114805473}
   - component: {fileID: 7775727284788454399}
+  - component: {fileID: 8473390244076623249}
+  - component: {fileID: 3103530918485424077}
   m_Layer: 0
   m_Name: SpawnPoint (2)
   m_TagString: SpawnPoint
@@ -7066,6 +7068,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformSpawner: {fileID: 7778010796869860195, guid: bb7419c59955ca84a8a34c89ab4d7ec3,
+    type: 3}
+--- !u!114 &8473390244076623249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7076550689487588581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e0bddd4e490647408f693723c2e5d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpawner: {fileID: 4962554956154271190, guid: a1f65e205c02f614699afb9f34b0e769,
+    type: 3}
+--- !u!114 &3103530918485424077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7076550689487588581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fb1c8ba034308e4b888cfac5699f6a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSpawner: {fileID: 5915557170210450326, guid: 1905ee3e13b3f244483802aba108f88e,
     type: 3}
 --- !u!1 &7137388480572229870
 GameObject:
@@ -7488,6 +7518,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25b497749ee4a43418c79205400dcae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasPlayerEnteredRoomBefore: 0
+  spawnedPlatforms: 0
+  spawnedEnemies: 0
+  spawnedItems: 0
+  timerStopped: 0
+  isInRoomTimer: 0
 --- !u!1 &7634008856939620435
 GameObject:
   m_ObjectHideFlags: 0
@@ -8061,6 +8097,8 @@ GameObject:
   - component: {fileID: 1640781382974928525}
   - component: {fileID: 1424014573051713026}
   - component: {fileID: 331739618412154615}
+  - component: {fileID: 55970876751875383}
+  - component: {fileID: 2498424083226096333}
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: SpawnPoint
@@ -8173,6 +8211,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformSpawner: {fileID: 7778010796869860195, guid: bb7419c59955ca84a8a34c89ab4d7ec3,
+    type: 3}
+--- !u!114 &55970876751875383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8117960238102374918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e0bddd4e490647408f693723c2e5d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpawner: {fileID: 4962554956154271190, guid: a1f65e205c02f614699afb9f34b0e769,
+    type: 3}
+--- !u!114 &2498424083226096333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8117960238102374918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fb1c8ba034308e4b888cfac5699f6a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSpawner: {fileID: 5915557170210450326, guid: 1905ee3e13b3f244483802aba108f88e,
     type: 3}
 --- !u!1 &8122223465765313787
 GameObject:

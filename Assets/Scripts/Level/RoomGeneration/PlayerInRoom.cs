@@ -6,12 +6,15 @@ public class PlayerInRoom : MonoBehaviour
 {
     private LevelManager levelManager;
     private bool isInRoom;
-    private bool hasPlayerEnteredRoomBefore;
+    public bool hasPlayerEnteredRoomBefore;
     public bool spawnedPlatforms = false;
     public bool spawnedEnemies = false;
-    private float isInRoomTimer = 0f;
+    public bool spawnedItems = false;
+    public bool timerStopped;
+    public float isInRoomTimer = 0f;
     private AddPlatforms[] addPlatforms;
     private AddEnemies[] addEnemies;
+    private AddItems[] addItems;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +38,13 @@ public class PlayerInRoom : MonoBehaviour
                 spawner.CheckIfSpawned();
             }
         }
+        if (addItems != null)
+        {
+            foreach (AddItems spawner in addItems)
+            {
+                spawner.CheckIfSpawned();
+            }
+        }
 
     }
     // Update is called once per frame
@@ -44,7 +54,10 @@ public class PlayerInRoom : MonoBehaviour
         {
             if (!levelManager.AreAllEnemiesDead())
             {
-                isInRoomTimer += Time.deltaTime;
+                if(!timerStopped)
+                {
+                    isInRoomTimer += Time.deltaTime;
+                }
             }
         }
     }
@@ -56,6 +69,7 @@ public class PlayerInRoom : MonoBehaviour
             isInRoom = true;
             addPlatforms = gameObject.GetComponentsInChildren<AddPlatforms>();
             addEnemies = gameObject.GetComponentsInChildren<AddEnemies>();
+            addItems = gameObject.GetComponentsInChildren<AddItems>();
             if(!hasPlayerEnteredRoomBefore)
             {
                 hasPlayerEnteredRoomBefore = true;
@@ -65,7 +79,7 @@ public class PlayerInRoom : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
             isInRoom = false;
         }
@@ -87,8 +101,16 @@ public class PlayerInRoom : MonoBehaviour
     {
         spawnedEnemies = newState;
     }
-    public bool GetSpawnedEnemiess()
+    public bool GetSpawnedEnemies()
     {
         return spawnedEnemies;
+    }
+    public void SetSpawnedItems(bool newState)
+    {
+        spawnedItems = newState;
+    }
+    public bool GetSpawnedItems()
+    {
+        return spawnedItems;
     }
 }
