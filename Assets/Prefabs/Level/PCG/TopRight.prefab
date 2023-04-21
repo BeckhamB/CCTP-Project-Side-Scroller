@@ -4940,6 +4940,7 @@ GameObject:
   - component: {fileID: 6086444499367952516}
   - component: {fileID: 7175551531231900963}
   - component: {fileID: 3853631832241785091}
+  - component: {fileID: 43051167799464226}
   m_Layer: 0
   m_Name: SpawnPoint (2)
   m_TagString: SpawnPoint
@@ -5081,6 +5082,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSpawner: {fileID: 5915557170210450326, guid: 1905ee3e13b3f244483802aba108f88e,
     type: 3}
+--- !u!114 &43051167799464226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4552947773378425287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be385ffc922f6bb4796bcfc5fab67fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4625810381212965559
 GameObject:
   m_ObjectHideFlags: 0
@@ -7987,6 +8000,7 @@ GameObject:
   - component: {fileID: 1639256827190196206}
   - component: {fileID: 926529491216916767}
   - component: {fileID: 3095748176402783654}
+  - component: {fileID: 7620031484626359220}
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: SpawnPoint
@@ -8128,6 +8142,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSpawner: {fileID: 5915557170210450326, guid: 1905ee3e13b3f244483802aba108f88e,
     type: 3}
+--- !u!114 &7620031484626359220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8121339101895821502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be385ffc922f6bb4796bcfc5fab67fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8260574065188999089
 GameObject:
   m_ObjectHideFlags: 0

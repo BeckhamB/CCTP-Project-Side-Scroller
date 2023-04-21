@@ -12,6 +12,7 @@ public class PlayerInRoom : MonoBehaviour
     public bool spawnedItems = false;
     public bool timerStopped;
     public float isInRoomTimer = 0f;
+    private int numOfCoinsInRoom = 0;
     private AddPlatforms[] addPlatforms;
     private AddEnemies[] addEnemies;
     private AddItems[] addItems;
@@ -84,7 +85,10 @@ public class PlayerInRoom : MonoBehaviour
             isInRoom = false;
         }
     }
-
+    public void CoinSpawned(int addValue)
+    {
+        numOfCoinsInRoom += addValue;
+    }
     public float GetInRoomTimer()
     {
         return isInRoomTimer;

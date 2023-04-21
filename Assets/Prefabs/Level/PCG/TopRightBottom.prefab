@@ -2900,6 +2900,7 @@ GameObject:
   - component: {fileID: 8928974785986393526}
   - component: {fileID: 7528705263381351113}
   - component: {fileID: 116901217413717264}
+  - component: {fileID: 6946832802395624856}
   m_Layer: 0
   m_Name: SpawnPoint (1)
   m_TagString: SpawnPoint
@@ -3041,6 +3042,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSpawner: {fileID: 5915557170210450326, guid: 1905ee3e13b3f244483802aba108f88e,
     type: 3}
+--- !u!114 &6946832802395624856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2831318187860851714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be385ffc922f6bb4796bcfc5fab67fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2940964317747364125
 GameObject:
   m_ObjectHideFlags: 0
@@ -5408,6 +5421,7 @@ GameObject:
   - component: {fileID: 1417668096246108241}
   - component: {fileID: 6010843708210663076}
   - component: {fileID: 5628351491434128072}
+  - component: {fileID: 2825980195498912977}
   m_Layer: 0
   m_Name: SpawnPoint (3)
   m_TagString: SpawnPoint
@@ -5549,6 +5563,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSpawner: {fileID: 5915557170210450326, guid: 1905ee3e13b3f244483802aba108f88e,
     type: 3}
+--- !u!114 &2825980195498912977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5438640875580480097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be385ffc922f6bb4796bcfc5fab67fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5547176140022661467
 GameObject:
   m_ObjectHideFlags: 0
@@ -7692,6 +7718,7 @@ GameObject:
   - component: {fileID: 7232906582311132979}
   - component: {fileID: 6474398774459404407}
   - component: {fileID: 1234187498063334871}
+  - component: {fileID: 4956436738147351875}
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: SpawnPoint
@@ -7833,6 +7860,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSpawner: {fileID: 5915557170210450326, guid: 1905ee3e13b3f244483802aba108f88e,
     type: 3}
+--- !u!114 &4956436738147351875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8126722700097660445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be385ffc922f6bb4796bcfc5fab67fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8314633388899390074
 GameObject:
   m_ObjectHideFlags: 0

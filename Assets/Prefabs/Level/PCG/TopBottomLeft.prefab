@@ -3693,6 +3693,7 @@ GameObject:
   - component: {fileID: 8956997878735566413}
   - component: {fileID: 182247789810969371}
   - component: {fileID: 3131286491381692449}
+  - component: {fileID: 1025458931004546003}
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: SpawnPoint
@@ -3834,6 +3835,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSpawner: {fileID: 5915557170210450326, guid: 1905ee3e13b3f244483802aba108f88e,
     type: 3}
+--- !u!114 &1025458931004546003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5353209716440453792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be385ffc922f6bb4796bcfc5fab67fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5382918245374458904
 GameObject:
   m_ObjectHideFlags: 0
@@ -4529,6 +4542,7 @@ GameObject:
   - component: {fileID: 76056278893504360}
   - component: {fileID: 3727394844082318107}
   - component: {fileID: 280220245615739234}
+  - component: {fileID: 5971467883454553496}
   m_Layer: 0
   m_Name: SpawnPoint (1)
   m_TagString: SpawnPoint
@@ -4670,6 +4684,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSpawner: {fileID: 5915557170210450326, guid: 1905ee3e13b3f244483802aba108f88e,
     type: 3}
+--- !u!114 &5971467883454553496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6028294969760328356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be385ffc922f6bb4796bcfc5fab67fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6095443279262445103
 GameObject:
   m_ObjectHideFlags: 0
@@ -6045,6 +6071,7 @@ GameObject:
   - component: {fileID: 7207261361547683873}
   - component: {fileID: 7754526874108857564}
   - component: {fileID: 1800140772184443227}
+  - component: {fileID: 4669123045338643246}
   m_Layer: 0
   m_Name: SpawnPoint (3)
   m_TagString: SpawnPoint
@@ -6186,6 +6213,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSpawner: {fileID: 5915557170210450326, guid: 1905ee3e13b3f244483802aba108f88e,
     type: 3}
+--- !u!114 &4669123045338643246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8424447006011652218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be385ffc922f6bb4796bcfc5fab67fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8450156592774495816
 GameObject:
   m_ObjectHideFlags: 0

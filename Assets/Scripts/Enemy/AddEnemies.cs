@@ -12,7 +12,8 @@ public class AddEnemies : MonoBehaviour
     {
         if (overlapRoom != null && !overlapRoom.GetComponent<PlayerInRoom>().GetSpawnedEnemies())
         {
-            Instantiate(enemySpawner, transform.position, Quaternion.identity);
+            GameObject enemySpawnerInst = Instantiate(enemySpawner, transform.position, Quaternion.identity);
+            enemySpawnerInst.transform.parent = overlapRoom.transform;
             enemiesSpawned = true;
         }
     }

@@ -9,10 +9,10 @@ public class EnemyGenerator : MonoBehaviour
     private int defaultTotalWeight = 0;
     private int totalWeight = 0;
     private int sumOfIndexes = 0;
-
+    private PlayerInRoom playerInRoom;
     private void Start()
     {
-
+        playerInRoom = GetComponentInParent<PlayerInRoom>();
         foreach (Transform child in transform)
         {
             if(child.CompareTag("EnemySpawnPoint"))

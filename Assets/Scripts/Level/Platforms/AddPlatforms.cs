@@ -12,7 +12,8 @@ public class AddPlatforms : MonoBehaviour
     {
         if (overlapRoom != null && !overlapRoom.GetComponent<PlayerInRoom>().GetSpawnedPlatforms())
         {
-            Instantiate(platformSpawner, transform.position, Quaternion.identity);
+            GameObject platformSpawnerInst = Instantiate(platformSpawner, transform.position, Quaternion.identity);
+            platformSpawnerInst.transform.parent = overlapRoom.transform;
             platformsSpawned = true;
         }
     }

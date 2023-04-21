@@ -53,7 +53,7 @@ public class LevelManager : MonoBehaviour
             itemGenerator = GameObject.FindGameObjectWithTag("ItemManager").GetComponentInChildren<ItemGenerator>();
         }
 
-        if (meleeHitTracker - rangedHitTracker == 5 && !increaseMeleeEnemyPrompt1)
+        if (meleeHitTracker - rangedHitTracker == 5 )
         {
             for (int i = 0; i < enemyGenerator.enemies.Count; i++)
             {
@@ -63,9 +63,11 @@ public class LevelManager : MonoBehaviour
                     enemyGenerator.enemies[i].weight += 100;
                 }
             }
+            meleeHitTracker = 0;
+            rangedHitTracker = 0;
             increaseMeleeEnemyPrompt1 = true;
         }
-        if (meleeHitTracker - rangedHitTracker == -5 && !increaseRangedEnemyPrompt1)
+        if (meleeHitTracker - rangedHitTracker == -5)
         {
             for (int i = 0; i < enemyGenerator.enemies.Count; i++)
             {
@@ -75,6 +77,8 @@ public class LevelManager : MonoBehaviour
                     enemyGenerator.enemies[i].weight += 100;
                 }
             }
+            meleeHitTracker = 0;
+            rangedHitTracker = 0;
             increaseRangedEnemyPrompt1 = true;
         }
         if (meleeKills == 10 && !increaseMeleeKills1)

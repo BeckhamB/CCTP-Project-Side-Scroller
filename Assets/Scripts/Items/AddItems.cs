@@ -12,7 +12,8 @@ public class AddItems : MonoBehaviour
     {
         if (overlapRoom != null && !overlapRoom.GetComponent<PlayerInRoom>().GetSpawnedItems())
         {
-            Instantiate(itemSpawner, transform.position, Quaternion.identity);
+            GameObject itemSpawnerInst = Instantiate(itemSpawner, transform.position, Quaternion.identity);
+            itemSpawnerInst.transform.parent = overlapRoom.transform;
             itemsSpawned = true;
         }
     }
