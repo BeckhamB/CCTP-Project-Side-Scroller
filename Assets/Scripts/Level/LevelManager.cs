@@ -5,14 +5,15 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     public bool allEnemiesDead = false;
-    public int numberOfCollectablesSpawned;
-
+    private int numberOfCollectablesSpawned;
+    private int numberOfEnemiesSpawned;
 
     private int enemiesKilledInRoom;
     private int meleeHitTracker;
     private int rangedHitTracker;
     private int meleeKills;
     private int rangedKills;
+    private int totalKills;
     private int collectablesPickedUp;
 
     private int maxWeight = 400;
@@ -23,13 +24,6 @@ public class LevelManager : MonoBehaviour
     private PlatformGenerator platformGenerator;
     private EnemyGenerator enemyGenerator;
     private ItemGenerator itemGenerator;
-
-    private bool increaseMeleeEnemyPrompt1 = false;
-    private bool increaseRangedEnemyPrompt1 = false;
-    private bool increaseMeleeKills1 = false;
-    private bool increaseRangedKills1 = false;
-    private bool increasePercentageCoinsPickedUp1 = false;
-    private bool increaseAllCoinsPickedUp1 = false;
 
     private void Awake()
     {
@@ -52,7 +46,191 @@ public class LevelManager : MonoBehaviour
             itemGenerator = GameObject.FindGameObjectWithTag("ItemManager").GetComponentInChildren<ItemGenerator>();
         }
 
-        if (meleeHitTracker - rangedHitTracker == 5 )
+        NumberOfPlayerHitsCheck();
+        NumberOfPlayerKillsCheck();
+    }
+    public void CollectCoinsInLevelCheck()
+    {
+        if (numberOfCollectablesSpawned != 0)
+        {
+            if (collectablesPickedUp / numberOfCollectablesSpawned > 0.7 )
+            {
+                for (int i = 0; i < itemGenerator.items.Count; i++)
+                {
+                    if (itemGenerator.items[i].itemName == "Coin")
+                    {
+                        Debug.Log("Increased Coin Spawn Rate for % of coins");
+                        itemGenerator.items[i].weight += 10;
+                        maxNumOfRooms++;
+                    }
+                }
+            }
+        }
+        if (numberOfCollectablesSpawned != 0)
+        {
+            if (collectablesPickedUp / numberOfCollectablesSpawned < 0.3)
+            {
+                for (int i = 0; i < itemGenerator.items.Count; i++)
+                {
+                    if (itemGenerator.items[i].itemName == "Coin")
+                    {
+                        Debug.Log("Decreased Coin Spawn Rate for % of coins");
+                        itemGenerator.items[i].weight -= 10;
+                        maxNumOfRooms++;
+                    }
+                }
+            }
+        }
+        if (numberOfCollectablesSpawned != 0)
+        {
+            if (collectablesPickedUp == numberOfCollectablesSpawned)
+            {
+                for (int i = 0; i < itemGenerator.items.Count; i++)
+                {
+                    if (itemGenerator.items[i].itemName == "Coin")
+                    {
+                        Debug.Log("Increased Coin Spawn Rate for collecting all coins");
+                        itemGenerator.items[i].weight += 25;
+                    }
+                }
+
+            }
+        }
+        numberOfCollectablesSpawned = 0;
+        collectablesPickedUp = 0;
+    }
+    public void KilledEnemiesInLevelCheck()
+    {
+        totalKills = meleeKills + rangedKills;
+        if(totalKills / numberOfEnemiesSpawned > 0.7)
+        {
+            for (int i = 0; i < enemyGenerator.enemies.Count; i++)
+            {
+                if (enemyGenerator.enemies[i].enemyName == "GroundedRangedEnemy")
+                {
+                    Debug.Log("Increased Ranged Enemy Spawn Rate");
+                    enemyGenerator.enemies[i].weight += 100;
+                }
+                if (enemyGenerator.enemies[i].enemyName == "GroundedMeleeEnemy")
+                {
+                    Debug.Log("Increased Melee Enemy Spawn Rate");
+                    enemyGenerator.enemies[i].weight += 100;
+                }
+
+            }
+        }
+        if (totalKills / numberOfEnemiesSpawned < 0.7)
+        {
+            for (int i = 0; i < enemyGenerator.enemies.Count; i++)
+            {
+                if (enemyGenerator.enemies[i].enemyName == "GroundedRangedEnemy")
+                {
+                    Debug.Log("Increased Ranged Enemy Spawn Rate");
+                    enemyGenerator.enemies[i].weight -= 100;
+                }
+                if (enemyGenerator.enemies[i].enemyName == "GroundedMeleeEnemy")
+                {
+                    Debug.Log("Increased Melee Enemy Spawn Rate");
+                    enemyGenerator.enemies[i].weight -= 100;
+                }
+
+            }
+        }
+        if(totalKills == numberOfEnemiesSpawned)
+        {
+            for (int i = 0; i < enemyGenerator.enemies.Count; i++)
+            {
+                if (enemyGenerator.enemies[i].enemyName == "GroundedRangedEnemy")
+                {
+                    Debug.Log("Increased Ranged Enemy Spawn Rate and Attack Speed");
+                    enemyGenerator.enemies[i].weight += 150;
+                }
+                if (enemyGenerator.enemies[i].enemyName == "GroundedMeleeEnemy")
+                {
+                    Debug.Log("Increased Melee Enemy Spawn Rate and AttackSpeed");
+                    enemyGenerator.enemies[i].weight += 150;
+                }
+
+            }
+        }
+    }
+    public void AdjustPlatform1Weight(int addValue)
+    {
+        for (int i = 0; i < platformGenerator.platforms.Count; i++)
+        {
+            if (platformGenerator.platforms[i].platformName == "LargePlatform")
+            {
+                Debug.Log("Affect Large Platform Spawn Rate");
+                platformGenerator.platforms[i].weight += addValue;
+            }
+        }
+    }
+    public void AdjustPlatform2Weight(int addValue)
+    {
+        for (int i = 0; i < platformGenerator.platforms.Count; i++)
+        {
+            if (platformGenerator.platforms[i].platformName == "SmallPlatform")
+            {
+                Debug.Log("Affect Small Platform Spawn Rate");
+                platformGenerator.platforms[i].weight += addValue;
+            }
+        }
+    }
+    public void AdjustPlatform3Weight(int addValue)
+    {
+        for (int i = 0; i < platformGenerator.platforms.Count; i++)
+        {
+            if (platformGenerator.platforms[i].platformName == "FallingPlatform")
+            {
+                Debug.Log("Affect Falling Platform Spawn Rate");
+                platformGenerator.platforms[i].weight += addValue;
+            }
+        }
+    }
+    public void AdjustPlatform4Weight(int addValue)
+    {
+        for (int i = 0; i < platformGenerator.platforms.Count; i++)
+        {
+            if (platformGenerator.platforms[i].platformName == "MovingPlatform")
+            {
+                Debug.Log("Affect Moving Platform Spawn Rate");
+                platformGenerator.platforms[i].weight += addValue;
+            }
+        }
+    }
+    public void AdjustMeleeEnemySpawnRate(float addMoveSpeedValue, float addAttackSpeedValue)
+    {
+        if(enemyGenerator != null)
+        {
+            for (int i = 0; i < enemyGenerator.enemies.Count; i++)
+            {
+                if (enemyGenerator.enemies[i].enemyName == "GroundedMeleeEnemy")
+                {
+                    Debug.Log("Adjusted Melee Enemy Spawn Rate");
+                    enemyGenerator.enemies[i].attackTimer += addAttackSpeedValue;
+                    enemyGenerator.enemies[i].moveSpeed += addMoveSpeedValue;
+                }
+            }
+        }
+    }
+    public void AdjustRangedEnemySpawnRate(float addMoveSpeedValue, float addAttackSpeedValue)
+    {
+        if(enemyGenerator != null)
+        {
+            for (int i = 0; i < enemyGenerator.enemies.Count; i++)
+            {
+                if (enemyGenerator.enemies[i].enemyName == "GroundedRangedEnemy")
+                {
+                    Debug.Log("Adjusted Ranged Enemy Spawn Rate");
+                    enemyGenerator.enemies[i].attackTimer += addAttackSpeedValue;
+                    enemyGenerator.enemies[i].moveSpeed += addMoveSpeedValue;
+                }
+            }
+        }    
+    }
+    private void NumberOfPlayerHitsCheck()
+    {
+        if (meleeHitTracker - rangedHitTracker == 10)
         {
             for (int i = 0; i < enemyGenerator.enemies.Count; i++)
             {
@@ -64,9 +242,8 @@ public class LevelManager : MonoBehaviour
             }
             meleeHitTracker = 0;
             rangedHitTracker = 0;
-            increaseMeleeEnemyPrompt1 = true;
         }
-        if (meleeHitTracker - rangedHitTracker == -5)
+        if (meleeHitTracker - rangedHitTracker == -10)
         {
             for (int i = 0; i < enemyGenerator.enemies.Count; i++)
             {
@@ -78,9 +255,11 @@ public class LevelManager : MonoBehaviour
             }
             meleeHitTracker = 0;
             rangedHitTracker = 0;
-            increaseRangedEnemyPrompt1 = true;
         }
-        if (meleeKills == 10 && !increaseMeleeKills1)
+    }
+    private void NumberOfPlayerKillsCheck()
+    {
+        if (meleeKills - rangedKills == 10)
         {
             for (int i = 0; i < enemyGenerator.enemies.Count; i++)
             {
@@ -91,9 +270,10 @@ public class LevelManager : MonoBehaviour
                     enemyGenerator.enemies[i].attackTimer -= 1f;
                 }
             }
-            increaseMeleeKills1 = true;
+            meleeKills = 0;
+            rangedKills = 0;
         }
-        if (rangedKills == 10 && !increaseRangedKills1)
+        if (meleeKills - rangedKills == -10)
         {
             for (int i = 0; i < enemyGenerator.enemies.Count; i++)
             {
@@ -104,42 +284,12 @@ public class LevelManager : MonoBehaviour
                     enemyGenerator.enemies[i].attackTimer -= 1f;
                 }
             }
-            increaseRangedKills1 = true;
+            meleeKills = 0;
+            rangedKills = 0;
         }
-        if(numberOfCollectablesSpawned != 0)
-        {
-            if (collectablesPickedUp / numberOfCollectablesSpawned > 0.7 && !increasePercentageCoinsPickedUp1)
-            {
-                for (int i = 0; i < itemGenerator.items.Count; i++)
-                {
-                    if (itemGenerator.items[i].itemName == "Coin")
-                    {
-                        Debug.Log("Increased Coin Spawn Rate for % of coins");
-                        itemGenerator.items[i].weight += 100;
-                    }
-                }
-                increasePercentageCoinsPickedUp1 = true;
-            }
-        }
-        
-        if(numberOfCollectablesSpawned != 0)
-        {
-            if (collectablesPickedUp == numberOfCollectablesSpawned && !increaseAllCoinsPickedUp1)
-            {
-                for (int i = 0; i < itemGenerator.items.Count; i++)
-                {
-                    if (itemGenerator.items[i].itemName == "Coin")
-                    {
-                        Debug.Log("Increased Coin Spawn Rate for collecting all coins");
-                        itemGenerator.items[i].weight += 150;
-                    }
-                }
-                increaseAllCoinsPickedUp1 = true;
-            }
-        }
-        
-    }
 
+
+    }
     public void AddEnemyKilledType(WeaponType killedType)
     {
         if(killedType == WeaponType.MELEE)
@@ -153,9 +303,17 @@ public class LevelManager : MonoBehaviour
             enemiesKilledInRoom++;
         }
     }
+    public void SetNumCollectableSpawned(int addValue)
+    {
+        numberOfCollectablesSpawned += addValue;
+    }
     public void AddPickedUpCollectable()
     {
         collectablesPickedUp++;
+    }
+    public void SetNumEnemySpawned(int addValue)
+    {
+        numberOfEnemiesSpawned += addValue;
     }
     public bool AreAllEnemiesDead()
     {
@@ -172,5 +330,16 @@ public class LevelManager : MonoBehaviour
     public int TotalMaxNumOfRooms()
     {
         return maxNumOfRooms;
+    }
+    public void ResetValues()
+    {
+        numberOfCollectablesSpawned = 0;
+        numberOfEnemiesSpawned = 0;
+        meleeKills = 0;
+        rangedKills = 0;
+        totalKills = 0;
+        meleeHitTracker = 0;
+        rangedHitTracker = 0;
+        collectablesPickedUp = 0;
     }
 }

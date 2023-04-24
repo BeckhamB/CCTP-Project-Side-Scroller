@@ -38,7 +38,7 @@ public class ItemGenerator : MonoBehaviour
                 {
                     if (randomNum <= (items[i].weight + sumOfIndexes))
                     {
-                        levelManager.numberOfCollectablesSpawned++;
+                        levelManager.SetNumCollectableSpawned(1);
                         playerInRoom.CoinSpawned(1);
                         GameObject newItems = Instantiate(items[i].items, itemSP.position, Quaternion.identity);
                         newItems.transform.parent = this.transform;

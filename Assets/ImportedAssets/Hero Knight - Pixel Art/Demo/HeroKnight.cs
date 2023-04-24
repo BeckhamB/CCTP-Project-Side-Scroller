@@ -257,4 +257,8 @@ public class HeroKnight : MonoBehaviour {
             dust.transform.localScale = new Vector3(m_facingDirection, 1, 1);
         }
     }
+    public void TakeDamage()
+    {
+        m_animator.SetTrigger("Hurt");
+    }
 }

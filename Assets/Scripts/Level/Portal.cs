@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
 {
+    private LevelManager levelManager;
+    private void Start()
+    {
+        levelManager = GameObject.FindGameObjectWithTag("Level").GetComponent<LevelManager>();
+    }
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Y))
@@ -17,7 +22,8 @@ public class Portal : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            Debug.Log("Test");
+            levelManager.CollectCoinsInLevelCheck();
+            levelManager.ResetValues();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }

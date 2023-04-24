@@ -13,10 +13,17 @@ public class PlayerInRoom : MonoBehaviour
     public bool timerStopped;
     public float isInRoomTimer = 0f;
     private int numOfCoinsInRoom = 0;
+    private int numOfEnemiesInRoom = 0;
+    private int numOfCoinsCollected = 0;
+    private int numOfEnemiesKilled = 0;
+    private int numOfMeleeHitsTaken = 0;
+    private int numOfRangedHitsTaken = 0;
     private AddPlatforms[] addPlatforms;
     private AddEnemies[] addEnemies;
     private AddItems[] addItems;
 
+    private bool checkedCoinCount = false;
+    private bool checkedHitCount = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +53,8 @@ public class PlayerInRoom : MonoBehaviour
                 spawner.CheckIfSpawned();
             }
         }
-
+        CheckCoinCollected();
+        CheckHitsTaken();
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -56,7 +64,7 @@ public class PlayerInRoom : MonoBehaviour
             if (!levelManager.AreAllEnemiesDead())
             {
                 if(!timerStopped)
-                {
+                {   
                     isInRoomTimer += Time.deltaTime;
                 }
             }
@@ -85,9 +93,92 @@ public class PlayerInRoom : MonoBehaviour
             isInRoom = false;
         }
     }
+    private void CheckCoinCollected()
+    {
+        if(!checkedCoinCount)
+        {
+            if (numOfCoinsInRoom != 0)
+            {
+                if (isInRoomTimer >= 40f || numOfCoinsCollected == numOfCoinsInRoom)
+                {
+                    if (numOfCoinsCollected == numOfCoinsInRoom)
+                    {
+                        levelManager.AdjustPlatform3Weight(15);
+                        levelManager.AdjustPlatform4Weight(10);
+                    }
+                    if (numOfCoinsCollected / numOfCoinsInRoom > 0.7)
+                    {
+                        levelManager.AdjustPlatform3Weight(10);
+                        levelManager.AdjustPlatform1Weight(-10);
+                    }
+                    if (numOfCoinsCollected / numOfCoinsInRoom < 0.3)
+                    {
+                        levelManager.AdjustPlatform3Weight(-10);
+                        levelManager.AdjustPlatform1Weight(10);
+                    }
+                    if(numOfCoinsCollected == 0)
+                    {
+                        levelManager.AdjustPlatform2Weight(10);
+                        levelManager.AdjustPlatform1Weight(10);
+
+                    }
+                    checkedCoinCount = true;
+                }
+            }
+        }
+    }
+    private void CheckHitsTaken()
+    {
+        if (!checkedHitCount)
+        {
+            if(numOfEnemiesInRoom != 0)
+            {
+                if (isInRoomTimer >= 40f || numOfEnemiesKilled == numOfEnemiesInRoom)
+                {
+                    if (numOfMeleeHitsTaken == 0)
+                    {
+                        levelManager.AdjustMeleeEnemySpawnRate(0.2f, -0.2f);
+                    }
+                    if (numOfMeleeHitsTaken < 3)
+                    {
+                        levelManager.AdjustMeleeEnemySpawnRate(0.1f, -0.1f);
+                    }
+                    if (numOfMeleeHitsTaken > 7)
+                    {
+                        levelManager.AdjustMeleeEnemySpawnRate(-0.1f, 0.1f);
+                    }
+                    if (numOfRangedHitsTaken == 0)
+                    {
+                        levelManager.AdjustRangedEnemySpawnRate(0.2f, -0.2f);
+                    }
+                    if (numOfRangedHitsTaken < 3)
+                    {
+                        levelManager.AdjustRangedEnemySpawnRate(0.1f, -0.1f);
+                    }
+                    if (numOfRangedHitsTaken > 7)
+                    {
+                        levelManager.AdjustRangedEnemySpawnRate(-0.1f, 0.1f);
+                    }
+                    checkedHitCount = true;
+                }
+            } 
+        }
+    }
     public void CoinSpawned(int addValue)
     {
         numOfCoinsInRoom += addValue;
+    }
+    public void EnemiesSpawned(int addValue)
+    {
+        numOfEnemiesInRoom += addValue;
+    }
+    public void CoinCollected(int addValue)
+    {
+        numOfCoinsCollected += addValue;
+    }
+    public void EnemiesKilled(int addValue)
+    {
+        numOfEnemiesKilled += addValue;
     }
     public float GetInRoomTimer()
     {

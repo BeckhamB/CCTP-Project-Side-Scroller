@@ -173,6 +173,7 @@ public class Enemy : MonoBehaviour
     }
     private void Death(WeaponType TypeEffect)
     {
+        overlapRoom.GetComponent<PlayerInRoom>().EnemiesKilled(1);
         killedWeaponType = TypeEffect;
         levelManager.AddEnemyKilledType(TypeEffect);
         Destroy(this.gameObject);

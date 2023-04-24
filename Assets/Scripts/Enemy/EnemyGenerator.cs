@@ -10,9 +10,11 @@ public class EnemyGenerator : MonoBehaviour
     private int totalWeight = 0;
     private int sumOfIndexes = 0;
     private PlayerInRoom playerInRoom;
+    private LevelManager levelManager;
     private void Start()
     {
         playerInRoom = GetComponentInParent<PlayerInRoom>();
+        levelManager = GameObject.FindGameObjectWithTag("Level").GetComponent<LevelManager>();
         foreach (Transform child in transform)
         {
             if(child.CompareTag("EnemySpawnPoint"))
@@ -36,6 +38,8 @@ public class EnemyGenerator : MonoBehaviour
                 {
                     if (randomNum <= (enemies[i].weight + sumOfIndexes))
                     {
+                        levelManager.SetNumEnemySpawned(1);
+                        playerInRoom.EnemiesSpawned(1);
                         GameObject newEnemies = Instantiate(enemies[i].enemies, enemySP.position, Quaternion.identity);
                         newEnemies.transform.parent = this.transform;
                         enemySpawned = true;

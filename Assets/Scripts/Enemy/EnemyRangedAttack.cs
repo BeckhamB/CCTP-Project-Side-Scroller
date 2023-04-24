@@ -5,9 +5,11 @@ using UnityEngine;
 public class EnemyRangedAttack : MonoBehaviour
 {
     private PlayerManager playerManager;
+    private LevelManager levelManager;
 
     private void Start()
     {
+        levelManager = GameObject.FindGameObjectWithTag("Level").GetComponent<LevelManager>();
         playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
         StartCoroutine(DestroyTimer());
     }

@@ -17,10 +17,12 @@ public class PlayerManager : MonoBehaviour
     private int maxHealth = 100;
     private int currentCollectableAmount;
     private LevelManager levelManager;
+    private HeroKnight heroKnight;
 
     private void Start()
     {
         levelManager = GameObject.FindGameObjectWithTag("Level").GetComponent<LevelManager>();
+        heroKnight = GetComponent<HeroKnight>();
     }
 
     public void Attack()
@@ -41,6 +43,10 @@ public class PlayerManager : MonoBehaviour
     
     public void SetHealth(int HealthEffect, EnemyWeaponType TypeEffect)
     {
+        if(HealthEffect < 0)
+        {
+            heroKnight.TakeDamage();
+        }
         currentHealth += HealthEffect;
     }
         private void OnDrawGizmosSelected()
