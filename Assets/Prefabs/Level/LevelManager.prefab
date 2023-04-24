@@ -44,5 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a4a41e73c8a624b8e8901dd28326d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vcam1: {fileID: 2190610895383286071, guid: cf64d09e1fb8325458ea73741833be3c, type: 3}
+  vcam2: {fileID: 7251678566683445185, guid: 9d68071da5b3d3f4ba626f48a7f335ba, type: 3}
   allEnemiesDead: 0
+  numberOfCollectablesSpawned: 0
   maxNumOfRooms: 10

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyRangedAttack : MonoBehaviour
+public class EnemyMeleeAttack : MonoBehaviour
 {
     private PlayerManager playerManager;
 
@@ -15,13 +15,13 @@ public class EnemyRangedAttack : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            collision.GetComponent<PlayerManager>().SetHealth(-20, EnemyWeaponType.RANGED);
+            collision.GetComponent<PlayerManager>().SetHealth(-20, EnemyWeaponType.MELEE);
             Destroy(this.gameObject);
         }
     }
     private IEnumerator DestroyTimer()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.3f);
         Destroy(this.gameObject);
     }
 }

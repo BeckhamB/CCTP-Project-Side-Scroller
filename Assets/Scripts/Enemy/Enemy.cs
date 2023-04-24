@@ -18,27 +18,30 @@ public class Enemy : MonoBehaviour
     private int currentHealth;
     private WeaponType killedWeaponType;
     private LevelManager levelManager;
-    private float aggroRadius;
     private float moveSpeed = 2f;
     private Vector2 moveTowardsTarget;
-    private Rigidbody2D rb;
-    public GameObject meleeEnemyAttackPoint;
+    public GameObject enemyAttackPoint;
     private Vector2 defaultAttackPoint;
+    private GameObject meleeAttack;
     private GameObject rangedAttack;
     private float bulletForce = 10f;
     private float enemyAttackSpeedTimer = 2f;
     private float currentEnemyAttackSpeed;
     private bool hasAttacked;
     private GameObject target;
+    private GameObject overlapRoom;
+    private Vector2 originalPosition;
+    [SerializeField] private GameObject meleeAttackPrefab;
     [SerializeField] private GameObject rangedAttackPrefab;
     [SerializeField] private CircleCollider2D aggroCollider;
     [SerializeField] private EnemyWeaponType enemyWeaponType;
     [SerializeField] private EnemyType enemyType;
+    [SerializeField] private LayerMask layerMask;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        originalPosition = this.gameObject.transform.position;
         levelManager = GameObject.FindGameObjectWithTag("Level").GetComponent<LevelManager>();
         currentHealth = maxHealth;
 
@@ -46,7 +49,7 @@ public class Enemy : MonoBehaviour
         {
             case EnemyWeaponType.MELEE:
                 aggroCollider.radius = 4f;
-                defaultAttackPoint = meleeEnemyAttackPoint.transform.position;
+                defaultAttackPoint = enemyAttackPoint.transform.position;
                 break;
             case EnemyWeaponType.RANGED:
                 aggroCollider.radius = 6f;
@@ -59,7 +62,15 @@ public class Enemy : MonoBehaviour
     {
         if(currentEnemyAttackSpeed > enemyAttackSpeedTimer)
         {
-            RangedAttack();
+            switch(enemyWeaponType)
+            {
+                case EnemyWeaponType.MELEE:
+                    MeleeAttack();
+                    break;
+                case EnemyWeaponType.RANGED:
+                    RangedAttack();
+                    break;
+            }
             currentEnemyAttackSpeed = 0;
         }    
         else
@@ -72,8 +83,8 @@ public class Enemy : MonoBehaviour
             case EnemyWeaponType.MELEE:
                 if (moveTowardsTarget != Vector2.zero && Vector2.Distance(transform.position, moveTowardsTarget) > 0.02f)
                 {
-                    //Vector2 newMoveTowardsTarget = new Vector2(moveTowardsTarget.x, transform.position.y);
-                    //transform.position = Vector2.MoveTowards(transform.position, newMoveTowardsTarget, moveSpeed * Time.deltaTime);
+                    Vector2 newMoveTowardsTarget = new Vector2(moveTowardsTarget.x, transform.position.y);
+                    transform.position = Vector2.MoveTowards(transform.position, newMoveTowardsTarget, moveSpeed * Time.deltaTime);
                 }
                 break;
             case EnemyWeaponType.RANGED:
@@ -84,11 +95,11 @@ public class Enemy : MonoBehaviour
 
         if(moveTowardsTarget != Vector2.zero && moveTowardsTarget.x > transform.position.x)
         {
-            meleeEnemyAttackPoint.transform.position = new Vector2(this.transform.position.x + 1, this.transform.position.y);
+            enemyAttackPoint.transform.position = new Vector2(this.transform.position.x + 1, this.transform.position.y);
         }
         else
         {
-            meleeEnemyAttackPoint.transform.position = new Vector2(this.transform.position.x - 1, this.transform.position.y);
+            enemyAttackPoint.transform.position = new Vector2(this.transform.position.x - 1, this.transform.position.y);
         }
         
     }
@@ -120,14 +131,43 @@ public class Enemy : MonoBehaviour
     {
         target = targetInRange;
     }
+    private void MeleeAttack()
+    {
+        if (target != null)
+        {
+            Vector2 direction = new Vector2(target.transform.position.x - enemyAttackPoint.transform.position.x, target.transform.position.y - enemyAttackPoint.transform.position.y + 0.6f);
+            RaycastHit2D hit = Physics2D.Raycast(this.transform.position, direction, aggroCollider.radius, layerMask);
+
+            if (hit.collider != null)
+            {
+                if (hit.transform.gameObject.CompareTag("Player"))
+                {
+                    meleeAttack = Instantiate(meleeAttackPrefab, enemyAttackPoint.transform.position, Quaternion.identity);
+                    meleeAttack.transform.parent = this.gameObject.transform;
+                    hasAttacked = true;
+                }
+            }
+
+        }
+
+    }
     private void RangedAttack()
     {
         if (target != null)
         {
-            Vector2 direction = new Vector2 (target.transform.position.x - meleeEnemyAttackPoint.transform.position.x, target.transform.position.y - meleeEnemyAttackPoint.transform.position.y + 1f);
-            rangedAttack = Instantiate(rangedAttackPrefab, meleeEnemyAttackPoint.transform.position, Quaternion.identity);
-            rangedAttack.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * bulletForce;
-            hasAttacked = true;
+            Vector2 direction = new Vector2(target.transform.position.x - enemyAttackPoint.transform.position.x, target.transform.position.y - enemyAttackPoint.transform.position.y + 0.6f);
+            RaycastHit2D hit = Physics2D.Raycast(this.transform.position, direction, aggroCollider.radius, layerMask);
+
+            if (hit.collider != null)
+            {
+                if (hit.transform.gameObject.CompareTag("Player"))
+                {
+                    rangedAttack = Instantiate(rangedAttackPrefab, enemyAttackPoint.transform.position, Quaternion.identity);
+                    rangedAttack.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * bulletForce;
+                    hasAttacked = true;
+                }
+            }
+
         }
        
     }
@@ -143,10 +183,32 @@ public class Enemy : MonoBehaviour
     }
     public void MoveTowardsTarget(Vector2 targetPosition)
     {
-        moveTowardsTarget = targetPosition;
+        if(targetPosition != Vector2.zero)
+        {
+            Vector2 direction = new Vector2(targetPosition.x - enemyAttackPoint.transform.position.x, targetPosition.y - enemyAttackPoint.transform.position.y + 0.6f);
+            RaycastHit2D hit = Physics2D.Raycast(this.transform.position, direction, aggroCollider.radius, layerMask);
+
+            if (hit.collider != null)
+            {
+                if (hit.transform.gameObject.CompareTag("Player"))
+                {
+                    moveTowardsTarget = targetPosition;
+                }
+            }
+        }
     }
     public void SetMoveSpeed(float newMoveSpeed)
     {
         moveSpeed = newMoveSpeed;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<PlayerInRoom>() != null && overlapRoom == null)
+        {
+            overlapRoom = collision.gameObject;
+
+        }
+    }
+
 }

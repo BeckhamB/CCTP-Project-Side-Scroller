@@ -15,7 +15,7 @@ public class RangedAttack : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             levelManager.SetRangedHitTracker(1);
-            collision.GetComponent<Enemy>().SetHealth(-20, WeaponType.RANGED);
+            collision.GetComponent<Enemy>().SetHealth(-40, WeaponType.RANGED);
             Destroy(this.gameObject);
         }
     }

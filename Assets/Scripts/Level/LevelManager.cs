@@ -31,9 +31,8 @@ public class LevelManager : MonoBehaviour
     private bool increasePercentageCoinsPickedUp1 = false;
     private bool increaseAllCoinsPickedUp1 = false;
 
-    private void Start()
+    private void Awake()
     {
-        
         DontDestroyOnLoad(this.gameObject);
     }
     private void Update()

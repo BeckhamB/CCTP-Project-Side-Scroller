@@ -102,12 +102,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c394dd52955b54458143cfb9b946b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeEnemyAttackPoint: {fileID: 9063404661616338157}
+  enemyAttackPoint: {fileID: 9063404661616338157}
+  meleeAttackPrefab: {fileID: 8690950337773083281, guid: 6a139c693639d48428ef38204431078c,
+    type: 3}
   rangedAttackPrefab: {fileID: 8690950337773083281, guid: 9aff7e105d1455149af8ce9a272aad13,
     type: 3}
   aggroCollider: {fileID: 8454969614314165245}
   enemyWeaponType: 0
   enemyType: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 9472
 --- !u!50 &1727037332634859537
 Rigidbody2D:
   serializedVersion: 4
@@ -127,8 +132,8 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!61 &7328734136089441814
 BoxCollider2D:
   m_ObjectHideFlags: 0

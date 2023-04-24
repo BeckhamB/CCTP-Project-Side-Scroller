@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1579997688967560746}
   - component: {fileID: 4298027834053069228}
   - component: {fileID: 4704584635925587532}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: WallClosed
   m_TagString: ClosedWall
   m_Icon: {fileID: 0}

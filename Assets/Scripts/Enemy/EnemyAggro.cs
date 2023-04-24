@@ -33,14 +33,8 @@ public class EnemyAggro : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            switch(currentEnemyType)
-            {
-                case EnemyWeaponType.MELEE:
-                    break;
-                case EnemyWeaponType.RANGED:
-                    enemyScript.EnemyAttack(collision.gameObject);
-                    break;
-            }
+            enemyScript.EnemyAttack(collision.gameObject);
+            
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -50,6 +44,7 @@ public class EnemyAggro : MonoBehaviour
             switch (currentEnemyType)
             {
                 case EnemyWeaponType.MELEE:
+                    enemyScript.MoveTowardsTarget(Vector2.zero);
                     break;
                 case EnemyWeaponType.RANGED:
                     enemyScript.EnemyAttack(null);

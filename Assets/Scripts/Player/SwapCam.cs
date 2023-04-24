@@ -5,20 +5,23 @@ using Cinemachine;
 
 public class SwapCam : MonoBehaviour
 {
-    [SerializeField] private CinemachineVirtualCamera vcam1;
-    [SerializeField] private CinemachineVirtualCamera vcam2;
+    private CinemachineVirtualCamera vcam1;
 
+    private void Start()
+    {
+        vcam1 = GetComponent<CinemachineVirtualCamera>();
+    }
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Tab))
         {
-            if(vcam1.Priority > vcam2.Priority)
+            if(vcam1.m_Lens.OrthographicSize > 10)
             {
-                vcam2.Priority += 10;
+                vcam1.m_Lens.OrthographicSize = 5;
             }
             else
             {
-                vcam2.Priority -= 10;
+                vcam1.m_Lens.OrthographicSize = 80;
             }
         }
     }

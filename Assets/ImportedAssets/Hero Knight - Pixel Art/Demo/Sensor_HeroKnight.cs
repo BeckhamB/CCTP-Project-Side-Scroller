@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Sensor_HeroKnight : MonoBehaviour {
 
+    [SerializeField] private LayerMask layerMask;
     private int m_ColCount = 0;
 
     private float m_DisableTimer;
@@ -21,12 +22,18 @@ public class Sensor_HeroKnight : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        m_ColCount++;
+        if((layerMask & 1 << other.gameObject.layer) == 1 << other.gameObject.layer)
+        {
+            m_ColCount++;
+        }  
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        m_ColCount--;
+       if((layerMask & 1 << other.gameObject.layer) == 1 << other.gameObject.layer)
+        {
+            m_ColCount--;
+        } 
     }
 
     void Update()
