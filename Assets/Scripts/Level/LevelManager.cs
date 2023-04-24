@@ -61,7 +61,10 @@ public class LevelManager : MonoBehaviour
                     {
                         Debug.Log("Increased Coin Spawn Rate for % of coins");
                         itemGenerator.items[i].weight += 10;
-                        maxNumOfRooms++;
+                        if(maxNumOfRooms < 13)
+                        {
+                            maxNumOfRooms++;
+                        }
                     }
                 }
             }
@@ -76,7 +79,10 @@ public class LevelManager : MonoBehaviour
                     {
                         Debug.Log("Decreased Coin Spawn Rate for % of coins");
                         itemGenerator.items[i].weight -= 10;
-                        maxNumOfRooms++;
+                        if (maxNumOfRooms > 7)
+                        {
+                            maxNumOfRooms--;
+                        }
                     }
                 }
             }
