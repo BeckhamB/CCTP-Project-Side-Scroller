@@ -17,6 +17,7 @@ TagManager:
   - EnemySpawnPoint
   - Enemy
   - RoomCollider
+  - Portal
   layers:
   - Default
   - TransparentFX
@@ -32,7 +33,7 @@ TagManager:
   - InspectObject
   - PostProcessing
   - Wall
-  - 
+  - Portal
   - 
   - 
   - 

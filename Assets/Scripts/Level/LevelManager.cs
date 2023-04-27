@@ -337,6 +337,34 @@ public class LevelManager : MonoBehaviour
     {
         return maxNumOfRooms;
     }
+    public int GetNumOfCollectablesSpawned()
+    {
+        return numberOfCollectablesSpawned;
+    }
+    public int GetNumOfEnemiesSpawned()
+    {
+        return numberOfEnemiesSpawned;
+    }
+    public int GetNumOfMeleeHits()
+    {
+        return meleeHitTracker;
+    }
+    public int GetNumOfRangedHits()
+    {
+        return rangedHitTracker;
+    }
+    public int GetNumOfMeleeKills()
+    {
+        return meleeKills;
+    }
+    public int GetNumOfRangedKills()
+    {
+        return rangedKills;
+    }
+    public int GetNumOfCoinsPickedUp()
+    {
+        return collectablesPickedUp;
+    }
     public void ResetValues()
     {
         numberOfCollectablesSpawned = 0;

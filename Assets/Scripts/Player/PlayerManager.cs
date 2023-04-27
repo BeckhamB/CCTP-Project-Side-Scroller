@@ -18,13 +18,26 @@ public class PlayerManager : MonoBehaviour
     private int currentCollectableAmount;
     private LevelManager levelManager;
     private HeroKnight heroKnight;
+    private GameObject canvas;
 
     private void Start()
     {
         levelManager = GameObject.FindGameObjectWithTag("Level").GetComponent<LevelManager>();
         heroKnight = GetComponent<HeroKnight>();
+        canvas = GameObject.FindGameObjectWithTag("Canvas");
+        canvas.SetActive(false);
     }
-
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            canvas.SetActive(!canvas.activeSelf);
+        }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
     public void Attack()
     {
         Collider2D[] enemyHit = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);

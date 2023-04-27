@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerInRoom : MonoBehaviour
 {
     private LevelManager levelManager;
-    private bool isInRoom;
+    private bool isInRoom = false;
     public bool hasPlayerEnteredRoomBefore;
     public bool spawnedPlatforms = false;
     public bool spawnedEnemies = false;
@@ -180,6 +180,14 @@ public class PlayerInRoom : MonoBehaviour
     {
         numOfEnemiesKilled += addValue;
     }
+    public void PlayerMeleeHitsTaken(int addValue)
+    {
+        numOfMeleeHitsTaken += addValue;
+    }
+    public void PlayerRangedHitsTaken(int addValue)
+    {
+        numOfRangedHitsTaken += addValue;
+    }
     public float GetInRoomTimer()
     {
         return isInRoomTimer;
@@ -207,5 +215,34 @@ public class PlayerInRoom : MonoBehaviour
     public bool GetSpawnedItems()
     {
         return spawnedItems;
+    }
+
+    public bool GetIsPlayerInRoom()
+    {
+        return isInRoom;
+    }
+    public int GetNumOfCoinsSpawned()
+    {
+        return numOfCoinsInRoom;
+    }
+    public int GetNumOfSpawnedEnemies()
+    {
+        return numOfEnemiesInRoom;
+    }
+    public int GetNumOfCoinsCollected()
+    {
+        return numOfCoinsCollected;
+    }
+    public int GetNumOfEnemiesKilled()
+    {
+        return numOfEnemiesKilled;
+    }
+    public int GetNumOfMeleeHitsTaken()
+    {
+        return numOfMeleeHitsTaken;
+    }
+    public int GetNumOfRangedHitsTaken()
+    {
+        return numOfRangedHitsTaken;
     }
 }
