@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//enum for the different weapon types the player uses
 public enum WeaponType
 {
     DEFAULT = 0,
     MELEE = 1,
     RANGED = 2
 }
+
+//This script manages the players combative functionality within the game
 public class PlayerManager : MonoBehaviour
 {
     public Transform attackPoint;
@@ -31,6 +34,7 @@ public class PlayerManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.P))
         {
+            //displays the UI 
             canvas.SetActive(!canvas.activeSelf);
         }
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -40,10 +44,12 @@ public class PlayerManager : MonoBehaviour
     }
     public void Attack()
     {
+        //affects all enemies within the circle collider
         Collider2D[] enemyHit = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
         foreach(Collider2D enemy in enemyHit)
         {
+            //Affects the level manager values
             levelManager.SetMeleeHitTracker(1);
             enemy.GetComponent<Enemy>().SetHealth(-40, WeaponType.MELEE);
         }
@@ -54,6 +60,7 @@ public class PlayerManager : MonoBehaviour
         currentCollectableAmount += collectableAmount;
     }
     
+    //Is called when the player is hit by an enemy
     public void SetHealth(int HealthEffect, EnemyWeaponType TypeEffect)
     {
         if(HealthEffect < 0)

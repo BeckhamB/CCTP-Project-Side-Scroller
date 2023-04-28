@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script spawns each of the rooms and then after the timer is completed the portal is instantiated
+//within the final room within the array, this is assumed to be the furthers room from the spawn
 public class RoomTemplate : MonoBehaviour
 {
     public List<Rooms> topRooms;
@@ -50,6 +52,7 @@ public class RoomTemplate : MonoBehaviour
         }
     }
 
+    //Increases the total number of rooms
     public void AddNumOfRooms(int numberOfRoomsAdded)
     {
         numOfRooms += numberOfRoomsAdded;

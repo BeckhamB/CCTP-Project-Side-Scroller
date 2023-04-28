@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script respawns the falling platform at its original position
 public class PlatformRespawn : MonoBehaviour
 {
     [SerializeField] GameObject platformPrefab;

@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//enum used to inform the room manager what type of weapon the player has been hit by
 public enum EnemyWeaponType
 {
     MELEE = 0,
     RANGED = 1,
 }
+//enum for the type of enemy spawned
 public enum EnemyType
 {
     GROUNDED = 0,
@@ -38,13 +40,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyType enemyType;
     [SerializeField] private LayerMask layerMask;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         originalPosition = this.gameObject.transform.position;
         levelManager = GameObject.FindGameObjectWithTag("Level").GetComponent<LevelManager>();
         currentHealth = maxHealth;
 
+        //each enemy type have a different aggro radius
         switch (enemyWeaponType)
         {
             case EnemyWeaponType.MELEE:
@@ -57,7 +60,7 @@ public class Enemy : MonoBehaviour
         }
     }
     
-    // Update is called once per frame
+
     void Update()
     {
         if(currentEnemyAttackSpeed > enemyAttackSpeedTimer)
@@ -80,6 +83,7 @@ public class Enemy : MonoBehaviour
         
         switch (enemyWeaponType)
         {
+            //only melee enemies move towards the player when in range
             case EnemyWeaponType.MELEE:
                 if (moveTowardsTarget != Vector2.zero && Vector2.Distance(transform.position, moveTowardsTarget) > 0.02f)
                 {
@@ -92,7 +96,7 @@ public class Enemy : MonoBehaviour
 
         }
         
-
+        //used to swap which direction the enemy is facing
         if(moveTowardsTarget != Vector2.zero && moveTowardsTarget.x > transform.position.x)
         {
             enemyAttackPoint.transform.position = new Vector2(this.transform.position.x + 1, this.transform.position.y);
@@ -104,6 +108,7 @@ public class Enemy : MonoBehaviour
         
     }
 
+    //called to decrease the health of the enemy
     public void SetHealth(int HealthEffect, WeaponType TypeEffect)
     {
         switch (enemyWeaponType)
@@ -135,6 +140,7 @@ public class Enemy : MonoBehaviour
     {
         if (target != null)
         {
+            //Raycast used to prevent enemies attacking through walls
             Vector2 direction = new Vector2(target.transform.position.x - enemyAttackPoint.transform.position.x, target.transform.position.y - enemyAttackPoint.transform.position.y + 0.6f);
             RaycastHit2D hit = Physics2D.Raycast(this.transform.position, direction, aggroCollider.radius, layerMask);
 
@@ -142,6 +148,7 @@ public class Enemy : MonoBehaviour
             {
                 if (hit.transform.gameObject.CompareTag("Player"))
                 {
+                    //instantiates a box collider object to decrease player health
                     meleeAttack = Instantiate(meleeAttackPrefab, enemyAttackPoint.transform.position, Quaternion.identity);
                     meleeAttack.transform.parent = this.gameObject.transform;
                     hasAttacked = true;
@@ -155,6 +162,7 @@ public class Enemy : MonoBehaviour
     {
         if (target != null)
         {
+            //Raycast used to prevent enemies attacking through walls
             Vector2 direction = new Vector2(target.transform.position.x - enemyAttackPoint.transform.position.x, target.transform.position.y - enemyAttackPoint.transform.position.y + 0.6f);
             RaycastHit2D hit = Physics2D.Raycast(this.transform.position, direction, aggroCollider.radius, layerMask);
 
@@ -162,6 +170,7 @@ public class Enemy : MonoBehaviour
             {
                 if (hit.transform.gameObject.CompareTag("Player"))
                 {
+                    //instantiates a box collider object to decrease player health
                     rangedAttack = Instantiate(rangedAttackPrefab, enemyAttackPoint.transform.position, Quaternion.identity);
                     rangedAttack.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * bulletForce;
                     hasAttacked = true;
@@ -173,6 +182,7 @@ public class Enemy : MonoBehaviour
     }
     private void Death(WeaponType TypeEffect)
     {
+        //called when an enemy dies, affects the room manager and level manager
         overlapRoom.GetComponent<PlayerInRoom>().EnemiesKilled(1);
         killedWeaponType = TypeEffect;
         levelManager.AddEnemyKilledType(TypeEffect);
@@ -186,6 +196,7 @@ public class Enemy : MonoBehaviour
     {
         if(targetPosition != Vector2.zero)
         {
+            //Raycast used to prevent enemies move toward player through walls
             Vector2 direction = new Vector2(targetPosition.x - enemyAttackPoint.transform.position.x, targetPosition.y - enemyAttackPoint.transform.position.y + 0.6f);
             RaycastHit2D hit = Physics2D.Raycast(this.transform.position, direction, aggroCollider.radius, layerMask);
 
@@ -205,6 +216,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Detects the overlapping room with this node through box collider triggers
         if (collision.GetComponent<PlayerInRoom>() != null && overlapRoom == null)
         {
             overlapRoom = collision.gameObject;

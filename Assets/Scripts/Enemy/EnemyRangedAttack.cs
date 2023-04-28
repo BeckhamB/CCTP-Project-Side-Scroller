@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//this script handles the instantiated attack prefab from the enemy and passes information
+//to the level manager and room manager
 public class EnemyRangedAttack : MonoBehaviour
 {
     private PlayerManager playerManager;
@@ -32,6 +34,7 @@ public class EnemyRangedAttack : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
+            //increments the room manager values for the current room the enemy is in
             collision.GetComponent<PlayerManager>().SetHealth(-20, EnemyWeaponType.RANGED);
             if (spawnedRooms != null)
             {

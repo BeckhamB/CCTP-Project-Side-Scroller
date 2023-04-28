@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script manages the per room values which can affect the spawn rates of the scriptable objects
 public class PlayerInRoom : MonoBehaviour
 {
     private LevelManager levelManager;
@@ -32,6 +33,7 @@ public class PlayerInRoom : MonoBehaviour
 
     private void Update()
     {
+        
         if (addPlatforms != null)
         {
             foreach (AddPlatforms spawner in addPlatforms)
@@ -93,6 +95,7 @@ public class PlayerInRoom : MonoBehaviour
             isInRoom = false;
         }
     }
+    //This section features the variable checks when determining if a value should be adjusted
     private void CheckCoinCollected()
     {
         if(!checkedCoinCount)
@@ -164,6 +167,7 @@ public class PlayerInRoom : MonoBehaviour
             } 
         }
     }
+    //These getters and setters are used with the level manager and the UI displaying
     public void CoinSpawned(int addValue)
     {
         numOfCoinsInRoom += addValue;

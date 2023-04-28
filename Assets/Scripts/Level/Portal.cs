@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//Portal seen as the endpoint to each level, once entered the required values are checked and then reset within
+//the level manager, alongside this this is where the scene is reloaded
 public class Portal : MonoBehaviour
 {
     private LevelManager levelManager;

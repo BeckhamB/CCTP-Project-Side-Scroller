@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//This is a scriptable object used to adjust enemy values at runtime
 [CreateAssetMenu]
 public class Enemies : ScriptableObject
 {

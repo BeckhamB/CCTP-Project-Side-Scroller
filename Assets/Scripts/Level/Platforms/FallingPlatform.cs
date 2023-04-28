@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script implements the falling movement of the falling platform
 public class FallingPlatform : MonoBehaviour
 {
     private float fallDelay = 1f;

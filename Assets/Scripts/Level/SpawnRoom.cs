@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Spawns the idle platforms for the spawn room on startup
 public class SpawnRoom : MonoBehaviour
 {
     private GameObject roomTemplate;

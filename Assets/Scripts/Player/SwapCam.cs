@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
+//This script is used to provide the zoomed out camera when TAB is pressed
 public class SwapCam : MonoBehaviour
 {
     private CinemachineVirtualCamera vcam1;

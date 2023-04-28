@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script is used when determining if a player is within the aggro range of the enemy
 public class EnemyAggro : MonoBehaviour
 {
     private Enemy enemyScript;

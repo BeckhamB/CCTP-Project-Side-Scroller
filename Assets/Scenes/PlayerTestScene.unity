@@ -386,6 +386,7 @@ MonoBehaviour:
   hasPlayerEnteredRoomBefore: 0
   spawnedPlatforms: 0
   spawnedEnemies: 0
+  spawnedItems: 0
   timerStopped: 0
   isInRoomTimer: 0
 --- !u!1 &519420028

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script instantiates a room at the node location its attached to
 public class AddRoom : MonoBehaviour
 {
     private RoomTemplate temp;

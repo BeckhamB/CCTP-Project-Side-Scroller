@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//This script instantiates the items dependant on the weighting values of their
+//scriptable objects
 public class ItemGenerator : MonoBehaviour
 {
     public List<Items> items;
@@ -15,6 +18,7 @@ public class ItemGenerator : MonoBehaviour
     {
         levelManager = GameObject.FindGameObjectWithTag("Level").GetComponent<LevelManager>();
         playerInRoom = GetComponentInParent<PlayerInRoom>();
+        //finds the transforms of all spawn points
         foreach (Transform child in transform)
         {
             if(child.CompareTag("ItemSpawnPoint"))
@@ -22,20 +26,24 @@ public class ItemGenerator : MonoBehaviour
                 itemSpawnPoints.Add(child);
             }
         }
+        //Calculates the total weight of all the item types
         foreach (Items itemType in items)
         {
             defaultTotalWeight += itemType.weight;
             totalWeight = defaultTotalWeight;
         }
         totalWeight += 50;
+        //for each spawnpoint in the array
         foreach (Transform itemSP in itemSpawnPoints)
         {
+            //a random number is generated between 0 and the total weight
             int randomNum = Random.Range(0, totalWeight);
             bool itemSpawned = false;
             if(!itemSpawned)
             {
                 for (int i = 0; i < items.Count; i++)
                 {
+                    //if that value is = to the weight of the item + previous weights in the array it is instantiated
                     if (randomNum <= (items[i].weight + sumOfIndexes))
                     {
                         levelManager.SetNumCollectableSpawned(1);

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//this script handles the instantiated attack prefab from the enemy and passes information
+//to the level manager and room manager
 public class EnemyMeleeAttack : MonoBehaviour
 {
     private PlayerManager playerManager;
@@ -36,6 +38,7 @@ public class EnemyMeleeAttack : MonoBehaviour
             collision.GetComponent<PlayerManager>().SetHealth(-20, EnemyWeaponType.MELEE);
             if (spawnedRooms != null)
             {
+                //increments the room manager values for the current room the enemy is in
                 foreach (PlayerInRoom script in spawnedRooms)
                 {
                     if(script.GetIsPlayerInRoom())

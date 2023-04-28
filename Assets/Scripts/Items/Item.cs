@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Generic script for collectables being picked up and destroyed from within the game world
+//These values are then tracked within the room and level manager
 public class Item : MonoBehaviour
 {
     private LevelManager levelManager;

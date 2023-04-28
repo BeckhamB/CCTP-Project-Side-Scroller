@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+//This script has been iterated upon and is not used
 public class RoomSpawnTable : ScriptableObject
 {
     [SerializeField] private List<Rooms> rooms;

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//The level manager stores all values and affects the values of scriptable objects when the player enters the portal
+//essentially when the regeneration happens
 public class LevelManager : MonoBehaviour
 {
     public bool allEnemiesDead = false;
@@ -49,6 +51,8 @@ public class LevelManager : MonoBehaviour
         NumberOfPlayerHitsCheck();
         NumberOfPlayerKillsCheck();
     }
+
+    //These are all the checks of values which are called from within the portal before regeneration
     public void CollectCoinsInLevelCheck()
     {
         if (numberOfCollectablesSpawned != 0)

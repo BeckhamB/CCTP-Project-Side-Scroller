@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+//This script is used to display all the UI of the level and room manager aswell as the 
+//scriptable objects at runtime
 public class UI : MonoBehaviour
 {
     [Header("Level Manager Values")]
