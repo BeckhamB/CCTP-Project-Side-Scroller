@@ -8,3 +8,4 @@ TAB - Switch Camera
 Left Click - Melee Attack
 Right Click - Ranged Attack
 P - Enable/Disable Showing Values
+Y – Reset Level
